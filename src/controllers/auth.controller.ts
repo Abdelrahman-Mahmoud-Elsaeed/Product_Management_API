@@ -3,7 +3,7 @@ import { type Request, type Response } from "express";
 import bcrypt from "bcrypt";
 import { signToken } from "../services/jwt.service.ts";
 import { sendResponse } from "../utils/sendResponse.ts";
-import { AuthRequest } from "../middlewares/auth.middleware.ts";
+import type { AuthRequest } from "../middlewares/auth.middleware.ts";
 
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;

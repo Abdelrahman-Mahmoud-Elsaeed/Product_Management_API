@@ -22,6 +22,7 @@ const productSchema = new Schema(
     image: { type: imageSchema, default: {} },
     categoryId: { type: Types.ObjectId, ref: "Category", required: true },
     createdBy: { type: Types.ObjectId, ref: "Users", required: true },
+    stock :{ type: Number, default: 0 }
   },
   { timestamps: true }
 );

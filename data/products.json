@@ -1,0 +1,1743 @@
+[
+  {
+    "name": "Wireless Gaming Mouse",
+    "description": "Ergonomic 10000 DPI wireless mouse with RGB.",
+    "price": 49.99,
+    "oldPrice": 69.99,
+    "rating": 4.7,
+    "reviews": 128,
+    "discount": "28% OFF",
+    "image": {
+      "placeholder": "./images/mouse_ph.jpg",
+      "small": "./images/mouse_sm.jpg",
+      "medium": "./images/mouse_md.jpg",
+      "large": "./images/mouse_lg.jpg",
+      "webp": "./images/mouse.webp",
+      "avif": "./images/mouse.avif"
+    }
+  },
+  {
+    "name": "Mechanical Keyboard",
+    "description": "Tenkeyless mechanical keyboard with blue switches.",
+    "price": 89.99,
+    "oldPrice": 109.99,
+    "rating": 4.8,
+    "reviews": 340,
+    "discount": "18% OFF",
+    "image": {
+      "placeholder": "./images/kb_ph.jpg",
+      "small": "./images/kb_sm.jpg",
+      "medium": "./images/kb_md.jpg",
+      "large": "./images/kb_lg.jpg",
+      "webp": "./images/kb.webp",
+      "avif": "./images/kb.avif"
+    }
+  },
+  {
+    "name": "Noise Cancelling Headphones",
+    "description": "Over-ear bluetooth headphones with active noise cancellation.",
+    "price": 199.99,
+    "oldPrice": 249.99,
+    "rating": 4.5,
+    "reviews": 512,
+    "discount": "20% OFF",
+    "image": {
+      "placeholder": "./images/hp_ph.jpg",
+      "small": "./images/hp_sm.jpg",
+      "medium": "./images/hp_md.jpg",
+      "large": "./images/hp_lg.jpg",
+      "webp": "./images/hp.webp",
+      "avif": "./images/hp.avif"
+    }
+  },
+  {
+    "name": "27-inch 4K Monitor",
+    "description": "Ultra HD IPS monitor for gaming and productivity.",
+    "price": 349.99,
+    "oldPrice": 399.99,
+    "rating": 4.6,
+    "reviews": 215,
+    "discount": "12% OFF",
+    "image": {
+      "placeholder": "./images/mon_ph.jpg",
+      "small": "./images/mon_sm.jpg",
+      "medium": "./images/mon_md.jpg",
+      "large": "./images/mon_lg.jpg",
+      "webp": "./images/mon.webp",
+      "avif": "./images/mon.avif"
+    }
+  },
+  {
+    "name": "1TB NVMe SSD",
+    "description": "Lightning fast internal solid state drive.",
+    "price": 109.99,
+    "oldPrice": 129.99,
+    "rating": 4.9,
+    "reviews": 890,
+    "discount": "15% OFF",
+    "image": {
+      "placeholder": "./images/ssd_ph.jpg",
+      "small": "./images/ssd_sm.jpg",
+      "medium": "./images/ssd_md.jpg",
+      "large": "./images/ssd_lg.jpg",
+      "webp": "./images/ssd.webp",
+      "avif": "./images/ssd.avif"
+    }
+  },
+  {
+    "name": "USB-C Hub 8-in-1",
+    "description": "Multi-port adapter with HDMI, USB 3.0, and SD reader.",
+    "price": 39.99,
+    "oldPrice": 49.99,
+    "rating": 4.3,
+    "reviews": 450,
+    "discount": "20% OFF",
+    "image": {
+      "placeholder": "./images/hub_ph.jpg",
+      "small": "./images/hub_sm.jpg",
+      "medium": "./images/hub_md.jpg",
+      "large": "./images/hub_lg.jpg",
+      "webp": "./images/hub.webp",
+      "avif": "./images/hub.avif"
+    }
+  },
+  {
+    "name": "Smartphone Gimbal",
+    "description": "3-axis handheld stabilizer for mobile recording.",
+    "price": 99.99,
+    "oldPrice": 129.99,
+    "rating": 4.4,
+    "reviews": 310,
+    "discount": "23% OFF",
+    "image": {
+      "placeholder": "./images/gimbal_ph.jpg",
+      "small": "./images/gimbal_sm.jpg",
+      "medium": "./images/gimbal_md.jpg",
+      "large": "./images/gimbal_lg.jpg",
+      "webp": "./images/gimbal.webp",
+      "avif": "./images/gimbal.avif"
+    }
+  },
+  {
+    "name": "10000mAh Power Bank",
+    "description": "Portable charger with fast charging capability.",
+    "price": 29.99,
+    "oldPrice": 39.99,
+    "rating": 4.6,
+    "reviews": 1050,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/pb_ph.jpg",
+      "small": "./images/pb_sm.jpg",
+      "medium": "./images/pb_md.jpg",
+      "large": "./images/pb_lg.jpg",
+      "webp": "./images/pb.webp",
+      "avif": "./images/pb.avif"
+    }
+  },
+  {
+    "name": "Webcam 1080p",
+    "description": "HD web camera with built-in dual microphones.",
+    "price": 45.99,
+    "oldPrice": 59.99,
+    "rating": 4.2,
+    "reviews": 670,
+    "discount": "23% OFF",
+    "image": {
+      "placeholder": "./images/webcam_ph.jpg",
+      "small": "./images/webcam_sm.jpg",
+      "medium": "./images/webcam_md.jpg",
+      "large": "./images/webcam_lg.jpg",
+      "webp": "./images/webcam.webp",
+      "avif": "./images/webcam.avif"
+    }
+  },
+  {
+    "name": "Bluetooth Speaker",
+    "description": "Waterproof portable speaker with heavy bass.",
+    "price": 55.0,
+    "oldPrice": 75.0,
+    "rating": 4.7,
+    "reviews": 820,
+    "discount": "26% OFF",
+    "image": {
+      "placeholder": "./images/speaker_ph.jpg",
+      "small": "./images/speaker_sm.jpg",
+      "medium": "./images/speaker_md.jpg",
+      "large": "./images/speaker_lg.jpg",
+      "webp": "./images/speaker.webp",
+      "avif": "./images/speaker.avif"
+    }
+  },
+  {
+    "name": "Smart Watch Series X",
+    "description": "Fitness tracker with heart rate and sleep monitoring.",
+    "price": 149.99,
+    "oldPrice": 199.99,
+    "rating": 4.5,
+    "reviews": 1200,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/watch_ph.jpg",
+      "small": "./images/watch_sm.jpg",
+      "medium": "./images/watch_md.jpg",
+      "large": "./images/watch_lg.jpg",
+      "webp": "./images/watch.webp",
+      "avif": "./images/watch.avif"
+    }
+  },
+  {
+    "name": "Wireless Earbuds",
+    "description": "True wireless stereo earbuds with charging case.",
+    "price": 69.99,
+    "oldPrice": 89.99,
+    "rating": 4.4,
+    "reviews": 950,
+    "discount": "22% OFF",
+    "image": {
+      "placeholder": "./images/earbuds_ph.jpg",
+      "small": "./images/earbuds_sm.jpg",
+      "medium": "./images/earbuds_md.jpg",
+      "large": "./images/earbuds_lg.jpg",
+      "webp": "./images/earbuds.webp",
+      "avif": "./images/earbuds.avif"
+    }
+  },
+  {
+    "name": "Laptop Cooling Pad",
+    "description": "Five-fan cooling pad for 15-17 inch laptops.",
+    "price": 25.99,
+    "oldPrice": 35.99,
+    "rating": 4.3,
+    "reviews": 430,
+    "discount": "27% OFF",
+    "image": {
+      "placeholder": "./images/pad_ph.jpg",
+      "small": "./images/pad_sm.jpg",
+      "medium": "./images/pad_md.jpg",
+      "large": "./images/pad_lg.jpg",
+      "webp": "./images/pad.webp",
+      "avif": "./images/pad.avif"
+    }
+  },
+  {
+    "name": "HDMI Cable 6ft",
+    "description": "Braided high-speed 4K HDMI cable.",
+    "price": 9.99,
+    "oldPrice": 14.99,
+    "rating": 4.8,
+    "reviews": 2100,
+    "discount": "33% OFF",
+    "image": {
+      "placeholder": "./images/hdmi_ph.jpg",
+      "small": "./images/hdmi_sm.jpg",
+      "medium": "./images/hdmi_md.jpg",
+      "large": "./images/hdmi_lg.jpg",
+      "webp": "./images/hdmi.webp",
+      "avif": "./images/hdmi.avif"
+    }
+  },
+  {
+    "name": "Microphone Arm Stand",
+    "description": "Adjustable suspension boom scissor arm.",
+    "price": 35.0,
+    "oldPrice": 45.0,
+    "rating": 4.5,
+    "reviews": 560,
+    "discount": "22% OFF",
+    "image": {
+      "placeholder": "./images/arm_ph.jpg",
+      "small": "./images/arm_sm.jpg",
+      "medium": "./images/arm_md.jpg",
+      "large": "./images/arm_lg.jpg",
+      "webp": "./images/arm.webp",
+      "avif": "./images/arm.avif"
+    }
+  },
+  {
+    "name": "Condenser Microphone",
+    "description": "Studio recording microphone with pop filter.",
+    "price": 79.99,
+    "oldPrice": 99.99,
+    "rating": 4.6,
+    "reviews": 840,
+    "discount": "20% OFF",
+    "image": {
+      "placeholder": "./images/mic_ph.jpg",
+      "small": "./images/mic_sm.jpg",
+      "medium": "./images/mic_md.jpg",
+      "large": "./images/mic_lg.jpg",
+      "webp": "./images/mic.webp",
+      "avif": "./images/mic.avif"
+    }
+  },
+  {
+    "name": "Ring Light 10-inch",
+    "description": "LED selfie ring light with tripod stand.",
+    "price": 29.99,
+    "oldPrice": 39.99,
+    "rating": 4.4,
+    "reviews": 1150,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/ring_ph.jpg",
+      "small": "./images/ring_sm.jpg",
+      "medium": "./images/ring_md.jpg",
+      "large": "./images/ring_lg.jpg",
+      "webp": "./images/ring.webp",
+      "avif": "./images/ring.avif"
+    }
+  },
+  {
+    "name": "Wi-Fi 6 Router",
+    "description": "Dual-band gigabit wireless internet router.",
+    "price": 129.99,
+    "oldPrice": 159.99,
+    "rating": 4.7,
+    "reviews": 650,
+    "discount": "18% OFF",
+    "image": {
+      "placeholder": "./images/router_ph.jpg",
+      "small": "./images/router_sm.jpg",
+      "medium": "./images/router_md.jpg",
+      "large": "./images/router_lg.jpg",
+      "webp": "./images/router.webp",
+      "avif": "./images/router.avif"
+    }
+  },
+  {
+    "name": "Smart Plugs (4-Pack)",
+    "description": "Wi-Fi smart outlets compatible with Alexa.",
+    "price": 34.99,
+    "oldPrice": 44.99,
+    "rating": 4.8,
+    "reviews": 2300,
+    "discount": "22% OFF",
+    "image": {
+      "placeholder": "./images/plugs_ph.jpg",
+      "small": "./images/plugs_sm.jpg",
+      "medium": "./images/plugs_md.jpg",
+      "large": "./images/plugs_lg.jpg",
+      "webp": "./images/plugs.webp",
+      "avif": "./images/plugs.avif"
+    }
+  },
+  {
+    "name": "VR Headset",
+    "description": "Standalone virtual reality gaming headset.",
+    "price": 299.99,
+    "oldPrice": 349.99,
+    "rating": 4.6,
+    "reviews": 1800,
+    "discount": "14% OFF",
+    "image": {
+      "placeholder": "./images/vr_ph.jpg",
+      "small": "./images/vr_sm.jpg",
+      "medium": "./images/vr_md.jpg",
+      "large": "./images/vr_lg.jpg",
+      "webp": "./images/vr.webp",
+      "avif": "./images/vr.avif"
+    }
+  },
+
+  {
+    "name": "Men's Classic T-Shirt",
+    "description": "100% cotton crew neck short sleeve tee.",
+    "price": 14.99,
+    "oldPrice": 19.99,
+    "rating": 4.5,
+    "reviews": 450,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/tee_ph.jpg",
+      "small": "./images/tee_sm.jpg",
+      "medium": "./images/tee_md.jpg",
+      "large": "./images/tee_lg.jpg",
+      "webp": "./images/tee.webp",
+      "avif": "./images/tee.avif"
+    }
+  },
+  {
+    "name": "Women's Denim Jacket",
+    "description": "Vintage wash button-down denim jacket.",
+    "price": 49.99,
+    "oldPrice": 69.99,
+    "rating": 4.6,
+    "reviews": 320,
+    "discount": "28% OFF",
+
+    "image": {
+      "placeholder": "./images/djk_ph.jpg",
+      "small": "./images/djk_sm.jpg",
+      "medium": "./images/djk_md.jpg",
+      "large": "./images/djk_lg.jpg",
+      "webp": "./images/djk.webp",
+      "avif": "./images/djk.avif"
+    }
+  },
+  {
+    "name": "Running Sneakers",
+    "description": "Lightweight breathable mesh athletic shoes.",
+    "price": 79.99,
+    "oldPrice": 99.99,
+    "rating": 4.7,
+    "reviews": 890,
+    "discount": "20% OFF",
+    "image": {
+      "placeholder": "./images/sneaker_ph.jpg",
+      "small": "./images/sneaker_sm.jpg",
+      "medium": "./images/sneaker_md.jpg",
+      "large": "./images/sneaker_lg.jpg",
+      "webp": "./images/sneaker.webp",
+      "avif": "./images/sneaker.avif"
+    }
+  },
+  {
+    "name": "Leather Wallet",
+    "description": "Slim bifold genuine leather wallet with RFID.",
+    "price": 24.99,
+    "oldPrice": 34.99,
+    "rating": 4.8,
+    "reviews": 1100,
+    "discount": "28% OFF",
+
+    "image": {
+      "placeholder": "./images/wallet_ph.jpg",
+      "small": "./images/wallet_sm.jpg",
+      "medium": "./images/wallet_md.jpg",
+      "large": "./images/wallet_lg.jpg",
+      "webp": "./images/wallet.webp",
+      "avif": "./images/wallet.avif"
+    }
+  },
+  {
+    "name": "Winter Beanie",
+    "description": "Warm knit slouchy beanie for cold weather.",
+    "price": 12.99,
+    "oldPrice": 18.99,
+    "rating": 4.4,
+    "reviews": 210,
+    "discount": "31% OFF",
+
+    "image": {
+      "placeholder": "./images/beanie_ph.jpg",
+      "small": "./images/beanie_sm.jpg",
+      "medium": "./images/beanie_md.jpg",
+      "large": "./images/beanie_lg.jpg",
+      "webp": "./images/beanie.webp",
+      "avif": "./images/beanie.avif"
+    }
+  },
+  {
+    "name": "Polarized Sunglasses",
+    "description": "Classic aviator style with UV400 protection.",
+    "price": 19.99,
+    "oldPrice": 29.99,
+    "rating": 4.5,
+    "reviews": 560,
+    "discount": "33% OFF",
+
+    "image": {
+      "placeholder": "./images/glass_ph.jpg",
+      "small": "./images/glass_sm.jpg",
+      "medium": "./images/glass_md.jpg",
+      "large": "./images/glass_lg.jpg",
+      "webp": "./images/glass.webp",
+      "avif": "./images/glass.avif"
+    }
+  },
+  {
+    "name": "Yoga Pants",
+    "description": "High-waisted stretchy leggings with pockets.",
+    "price": 29.99,
+    "oldPrice": 39.99,
+    "rating": 4.7,
+    "reviews": 1400,
+    "discount": "25% OFF",
+
+    "image": {
+      "placeholder": "./images/yoga_ph.jpg",
+      "small": "./images/yoga_sm.jpg",
+      "medium": "./images/yoga_md.jpg",
+      "large": "./images/yoga_lg.jpg",
+      "webp": "./images/yoga.webp",
+      "avif": "./images/yoga.avif"
+    }
+  },
+  {
+    "name": "Men's Hoodie",
+    "description": "Fleece pullover hoodie with front pocket.",
+    "price": 34.99,
+    "oldPrice": 49.99,
+    "rating": 4.6,
+    "reviews": 780,
+    "discount": "30% OFF",
+
+    "image": {
+      "placeholder": "./images/hoodie_ph.jpg",
+      "small": "./images/hoodie_sm.jpg",
+      "medium": "./images/hoodie_md.jpg",
+      "large": "./images/hoodie_lg.jpg",
+      "webp": "./images/hoodie.webp",
+      "avif": "./images/hoodie.avif"
+    }
+  },
+  {
+    "name": "Women's Summer Dress",
+    "description": "Floral print casual sundress.",
+    "price": 27.99,
+    "oldPrice": 35.99,
+    "rating": 4.3,
+    "reviews": 340,
+    "discount": "22% OFF",
+
+    "image": {
+      "placeholder": "./images/dress_ph.jpg",
+      "small": "./images/dress_sm.jpg",
+      "medium": "./images/dress_md.jpg",
+      "large": "./images/dress_lg.jpg",
+      "webp": "./images/dress.webp",
+      "avif": "./images/dress.avif"
+    }
+  },
+  {
+    "name": "Sports Socks (6-Pack)",
+    "description": "Cushioned ankle socks for athletic wear.",
+    "price": 15.99,
+    "oldPrice": 20.99,
+    "rating": 4.8,
+    "reviews": 2100,
+    "discount": "23% OFF",
+
+    "image": {
+      "placeholder": "./images/socks_ph.jpg",
+      "small": "./images/socks_sm.jpg",
+      "medium": "./images/socks_md.jpg",
+      "large": "./images/socks_lg.jpg",
+      "webp": "./images/socks.webp",
+      "avif": "./images/socks.avif"
+    }
+  },
+  {
+    "name": "Leather Belt",
+    "description": "Classic reversible black/brown dress belt.",
+    "price": 22.99,
+    "oldPrice": 29.99,
+    "rating": 4.5,
+    "reviews": 600,
+    "discount": "23% OFF",
+
+    "image": {
+      "placeholder": "./images/belt_ph.jpg",
+      "small": "./images/belt_sm.jpg",
+      "medium": "./images/belt_md.jpg",
+      "large": "./images/belt_lg.jpg",
+      "webp": "./images/belt.webp",
+      "avif": "./images/belt.avif"
+    }
+  },
+  {
+    "name": "Canvas Backpack",
+    "description": "Vintage style laptop rucksack for school or travel.",
+    "price": 39.99,
+    "oldPrice": 59.99,
+    "rating": 4.6,
+    "reviews": 850,
+    "discount": "33% OFF",
+
+    "image": {
+      "placeholder": "./images/bag_ph.jpg",
+      "small": "./images/bag_sm.jpg",
+      "medium": "./images/bag_md.jpg",
+      "large": "./images/bag_lg.jpg",
+      "webp": "./images/bag.webp",
+      "avif": "./images/bag.avif"
+    }
+  },
+  {
+    "name": "Men's Chino Pants",
+    "description": "Slim fit stretch flat front casual trousers.",
+    "price": 32.99,
+    "oldPrice": 45.99,
+    "rating": 4.4,
+    "reviews": 420,
+    "discount": "28% OFF",
+
+    "image": {
+      "placeholder": "./images/chino_ph.jpg",
+      "small": "./images/chino_sm.jpg",
+      "medium": "./images/chino_md.jpg",
+      "large": "./images/chino_lg.jpg",
+      "webp": "./images/chino.webp",
+      "avif": "./images/chino.avif"
+    }
+  },
+  {
+    "name": "Silk Scarf",
+    "description": "Elegant lightweight neck scarf for women.",
+    "price": 18.99,
+    "oldPrice": 24.99,
+    "rating": 4.7,
+    "reviews": 310,
+    "discount": "24% OFF",
+
+    "image": {
+      "placeholder": "./images/scarf_ph.jpg",
+      "small": "./images/scarf_sm.jpg",
+      "medium": "./images/scarf_md.jpg",
+      "large": "./images/scarf_lg.jpg",
+      "webp": "./images/scarf.webp",
+      "avif": "./images/scarf.avif"
+    }
+  },
+  {
+    "name": "Windbreaker Jacket",
+    "description": "Water-resistant lightweight zip-up jacket.",
+    "price": 45.99,
+    "oldPrice": 65.99,
+    "rating": 4.5,
+    "reviews": 540,
+    "discount": "30% OFF",
+
+    "image": {
+      "placeholder": "./images/wind_ph.jpg",
+      "small": "./images/wind_sm.jpg",
+      "medium": "./images/wind_md.jpg",
+      "large": "./images/wind_lg.jpg",
+      "webp": "./images/wind.webp",
+      "avif": "./images/wind.avif"
+    }
+  },
+  {
+    "name": "Formal Dress Shoes",
+    "description": "Men's classic oxford lace-up shoes.",
+    "price": 59.99,
+    "oldPrice": 89.99,
+    "rating": 4.3,
+    "reviews": 290,
+    "discount": "33% OFF",
+
+    "image": {
+      "placeholder": "./images/oxford_ph.jpg",
+      "small": "./images/oxford_sm.jpg",
+      "medium": "./images/oxford_md.jpg",
+      "large": "./images/oxford_lg.jpg",
+      "webp": "./images/oxford.webp",
+      "avif": "./images/oxford.avif"
+    }
+  },
+  {
+    "name": "Thermal Underwear Set",
+    "description": "Fleece lined long johns base layer.",
+    "price": 26.99,
+    "oldPrice": 36.99,
+    "rating": 4.6,
+    "reviews": 750,
+    "discount": "27% OFF",
+
+    "image": {
+      "placeholder": "./images/therm_ph.jpg",
+      "small": "./images/therm_sm.jpg",
+      "medium": "./images/therm_md.jpg",
+      "large": "./images/therm_lg.jpg",
+      "webp": "./images/therm.webp",
+      "avif": "./images/therm.avif"
+    }
+  },
+  {
+    "name": "Baseball Cap",
+    "description": "Adjustable cotton twill plain dad hat.",
+    "price": 14.99,
+    "oldPrice": 19.99,
+    "rating": 4.5,
+    "reviews": 1100,
+    "discount": "25% OFF",
+
+    "image": {
+      "placeholder": "./images/cap_ph.jpg",
+      "small": "./images/cap_sm.jpg",
+      "medium": "./images/cap_md.jpg",
+      "large": "./images/cap_lg.jpg",
+      "webp": "./images/cap.webp",
+      "avif": "./images/cap.avif"
+    }
+  },
+  {
+    "name": "Crossbody Purse",
+    "description": "Faux leather small shoulder bag with tassels.",
+    "price": 28.99,
+    "oldPrice": 39.99,
+    "rating": 4.4,
+    "reviews": 430,
+    "discount": "27% OFF",
+
+    "image": {
+      "placeholder": "./images/purse_ph.jpg",
+      "small": "./images/purse_sm.jpg",
+      "medium": "./images/purse_md.jpg",
+      "large": "./images/purse_lg.jpg",
+      "webp": "./images/purse.webp",
+      "avif": "./images/purse.avif"
+    }
+  },
+  {
+    "name": "Swim Trunks",
+    "description": "Quick dry board shorts with mesh lining.",
+    "price": 21.99,
+    "oldPrice": 29.99,
+    "rating": 4.5,
+    "reviews": 320,
+    "discount": "26% OFF",
+
+    "image": {
+      "placeholder": "./images/swim_ph.jpg",
+      "small": "./images/swim_sm.jpg",
+      "medium": "./images/swim_md.jpg",
+      "large": "./images/swim_lg.jpg",
+      "webp": "./images/swim.webp",
+      "avif": "./images/swim.avif"
+    }
+  },
+
+  {
+    "name": "Non-Stick Frying Pan",
+    "description": "10-inch aluminum skillet with cool touch handle.",
+    "price": 29.99,
+    "oldPrice": 39.99,
+    "rating": 4.6,
+    "reviews": 850,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/pan_ph.jpg",
+      "small": "./images/pan_sm.jpg",
+      "medium": "./images/pan_md.jpg",
+      "large": "./images/pan_lg.jpg",
+      "webp": "./images/pan.webp",
+      "avif": "./images/pan.avif"
+    }
+  },
+  {
+    "name": "Coffee Maker",
+    "description": "Programmable 12-cup drip coffee machine.",
+    "price": 49.99,
+    "oldPrice": 69.99,
+    "rating": 4.5,
+    "reviews": 1200,
+    "discount": "28% OFF",
+
+    "image": {
+      "placeholder": "./images/coffee_ph.jpg",
+      "small": "./images/coffee_sm.jpg",
+      "medium": "./images/coffee_md.jpg",
+      "large": "./images/coffee_lg.jpg",
+      "webp": "./images/coffee.webp",
+      "avif": "./images/coffee.avif"
+    }
+  },
+  {
+    "name": "Memory Foam Pillow",
+    "description": "Cooling gel orthopedic neck support pillow.",
+    "price": 34.99,
+    "oldPrice": 49.99,
+    "rating": 4.7,
+    "reviews": 2300,
+    "discount": "30% OFF",
+
+    "image": {
+      "placeholder": "./images/pillow_ph.jpg",
+      "small": "./images/pillow_sm.jpg",
+      "medium": "./images/pillow_md.jpg",
+      "large": "./images/pillow_lg.jpg",
+      "webp": "./images/pillow.webp",
+      "avif": "./images/pillow.avif"
+    }
+  },
+  {
+    "name": "Microfiber Bed Sheets",
+    "description": "Queen size 4-piece ultra soft sheet set.",
+    "price": 25.99,
+    "oldPrice": 35.99,
+    "rating": 4.8,
+    "reviews": 5400,
+    "discount": "27% OFF",
+
+    "image": {
+      "placeholder": "./images/sheets_ph.jpg",
+      "small": "./images/sheets_sm.jpg",
+      "medium": "./images/sheets_md.jpg",
+      "large": "./images/sheets_lg.jpg",
+      "webp": "./images/sheets.webp",
+      "avif": "./images/sheets.avif"
+    }
+  },
+  {
+    "name": "Electric Kettle",
+    "description": "1.7L stainless steel fast boiling water heater.",
+    "price": 27.99,
+    "oldPrice": 39.99,
+    "rating": 4.6,
+    "reviews": 980,
+    "discount": "30% OFF",
+
+    "image": {
+      "placeholder": "./images/kettle_ph.jpg",
+      "small": "./images/kettle_sm.jpg",
+      "medium": "./images/kettle_md.jpg",
+      "large": "./images/kettle_lg.jpg",
+      "webp": "./images/kettle.webp",
+      "avif": "./images/kettle.avif"
+    }
+  },
+  {
+    "name": "Bath Towel Set",
+    "description": "6-piece 100% Egyptian cotton luxury towels.",
+    "price": 45.99,
+    "oldPrice": 60.99,
+    "rating": 4.5,
+    "reviews": 1100,
+    "discount": "24% OFF",
+
+    "image": {
+      "placeholder": "./images/towel_ph.jpg",
+      "small": "./images/towel_sm.jpg",
+      "medium": "./images/towel_md.jpg",
+      "large": "./images/towel_lg.jpg",
+      "webp": "./images/towel.webp",
+      "avif": "./images/towel.avif"
+    }
+  },
+  {
+    "name": "Cast Iron Skillet",
+    "description": "12-inch pre-seasoned heavy duty pan.",
+    "price": 35.99,
+    "oldPrice": 45.99,
+    "rating": 4.9,
+    "reviews": 3200,
+    "discount": "21% OFF",
+
+    "image": {
+      "placeholder": "./images/cast_ph.jpg",
+      "small": "./images/cast_sm.jpg",
+      "medium": "./images/cast_md.jpg",
+      "large": "./images/cast_lg.jpg",
+      "webp": "./images/cast.webp",
+      "avif": "./images/cast.avif"
+    }
+  },
+  {
+    "name": "Air Purifier",
+    "description": "HEPA filter air cleaner for home allergens.",
+    "price": 89.99,
+    "oldPrice": 119.99,
+    "rating": 4.7,
+    "reviews": 1800,
+    "discount": "25% OFF",
+
+    "image": {
+      "placeholder": "./images/air_ph.jpg",
+      "small": "./images/air_sm.jpg",
+      "medium": "./images/air_md.jpg",
+      "large": "./images/air_lg.jpg",
+      "webp": "./images/air.webp",
+      "avif": "./images/air.avif"
+    }
+  },
+  {
+    "name": "Vacuum Cleaner",
+    "description": "Lightweight corded stick vacuum for hard floors.",
+    "price": 59.99,
+    "oldPrice": 79.99,
+    "rating": 4.4,
+    "reviews": 2500,
+    "discount": "25% OFF",
+
+    "image": {
+      "placeholder": "./images/vac_ph.jpg",
+      "small": "./images/vac_sm.jpg",
+      "medium": "./images/vac_md.jpg",
+      "large": "./images/vac_lg.jpg",
+      "webp": "./images/vac.webp",
+      "avif": "./images/vac.avif"
+    }
+  },
+  {
+    "name": "Digital Meat Thermometer",
+    "description": "Instant read food thermometer with backlight.",
+    "price": 14.99,
+    "oldPrice": 19.99,
+    "rating": 4.8,
+    "reviews": 4100,
+    "discount": "25% OFF",
+
+    "image": {
+      "placeholder": "./images/thermometer_ph.jpg",
+      "small": "./images/thermometer_sm.jpg",
+      "medium": "./images/thermometer_md.jpg",
+      "large": "./images/thermometer_lg.jpg",
+      "webp": "./images/thermometer.webp",
+      "avif": "./images/thermometer.avif"
+    }
+  },
+  {
+    "name": "Silicone Utensil Set",
+    "description": "12-piece heat resistant kitchen cooking tools.",
+    "price": 24.99,
+    "oldPrice": 32.99,
+    "rating": 4.6,
+    "reviews": 890,
+    "discount": "24% OFF",
+
+    "image": {
+      "placeholder": "./images/uten_ph.jpg",
+      "small": "./images/uten_sm.jpg",
+      "medium": "./images/uten_md.jpg",
+      "large": "./images/uten_lg.jpg",
+      "webp": "./images/uten.webp",
+      "avif": "./images/uten.avif"
+    }
+  },
+  {
+    "name": "Himalayan Salt Lamp",
+    "description": "Natural crystal rock lamp with dimmer switch.",
+    "price": 19.99,
+    "oldPrice": 29.99,
+    "rating": 4.5,
+    "reviews": 1500,
+    "discount": "33% OFF",
+
+    "image": {
+      "placeholder": "./images/salt_ph.jpg",
+      "small": "./images/salt_sm.jpg",
+      "medium": "./images/salt_md.jpg",
+      "large": "./images/salt_lg.jpg",
+      "webp": "./images/salt.webp",
+      "avif": "./images/salt.avif"
+    }
+  },
+  {
+    "name": "Food Storage Containers",
+    "description": "BPA-free airtight pantry organization set.",
+    "price": 39.99,
+    "oldPrice": 55.99,
+    "rating": 4.7,
+    "reviews": 2100,
+    "discount": "28% OFF",
+
+    "image": {
+      "placeholder": "./images/cont_ph.jpg",
+      "small": "./images/cont_sm.jpg",
+      "medium": "./images/cont_md.jpg",
+      "large": "./images/cont_lg.jpg",
+      "webp": "./images/cont.webp",
+      "avif": "./images/cont.avif"
+    }
+  },
+  {
+    "name": "Wall Clock",
+    "description": "12-inch silent non-ticking quartz modern clock.",
+    "price": 16.99,
+    "oldPrice": 22.99,
+    "rating": 4.4,
+    "reviews": 750,
+    "discount": "26% OFF",
+
+    "image": {
+      "placeholder": "./images/clock_ph.jpg",
+      "small": "./images/clock_sm.jpg",
+      "medium": "./images/clock_md.jpg",
+      "large": "./images/clock_lg.jpg",
+      "webp": "./images/clock.webp",
+      "avif": "./images/clock.avif"
+    }
+  },
+  {
+    "name": "Blender",
+    "description": "High-speed smoothie maker with glass jar.",
+    "price": 69.99,
+    "oldPrice": 89.99,
+    "rating": 4.5,
+    "reviews": 1300,
+    "discount": "22% OFF",
+
+    "image": {
+      "placeholder": "./images/blend_ph.jpg",
+      "small": "./images/blend_sm.jpg",
+      "medium": "./images/blend_md.jpg",
+      "large": "./images/blend_lg.jpg",
+      "webp": "./images/blend.webp",
+      "avif": "./images/blend.avif"
+    }
+  },
+  {
+    "name": "Ceramic Mug Set",
+    "description": "Set of 4 large colorful coffee mugs.",
+    "price": 22.99,
+    "oldPrice": 29.99,
+    "rating": 4.8,
+    "reviews": 460,
+    "discount": "23% OFF",
+
+    "image": {
+      "placeholder": "./images/mug_ph.jpg",
+      "small": "./images/mug_sm.jpg",
+      "medium": "./images/mug_md.jpg",
+      "large": "./images/mug_lg.jpg",
+      "webp": "./images/mug.webp",
+      "avif": "./images/mug.avif"
+    }
+  },
+  {
+    "name": "Laundry Hamper",
+    "description": "Collapsible fabric dirty clothes basket.",
+    "price": 18.99,
+    "oldPrice": 25.99,
+    "rating": 4.3,
+    "reviews": 890,
+    "discount": "26% OFF",
+
+    "image": {
+      "placeholder": "./images/hamper_ph.jpg",
+      "small": "./images/hamper_sm.jpg",
+      "medium": "./images/hamper_md.jpg",
+      "large": "./images/hamper_lg.jpg",
+      "webp": "./images/hamper.webp",
+      "avif": "./images/hamper.avif"
+    }
+  },
+  {
+    "name": "Desk Lamp",
+    "description": "LED reading light with USB charging port.",
+    "price": 24.99,
+    "oldPrice": 34.99,
+    "rating": 4.6,
+    "reviews": 1150,
+    "discount": "28% OFF",
+
+    "image": {
+      "placeholder": "./images/lamp_ph.jpg",
+      "small": "./images/lamp_sm.jpg",
+      "medium": "./images/lamp_md.jpg",
+      "large": "./images/lamp_lg.jpg",
+      "webp": "./images/lamp.webp",
+      "avif": "./images/lamp.avif"
+    }
+  },
+  {
+    "name": "Shower Curtain",
+    "description": "Waterproof fabric bathroom curtain with hooks.",
+    "price": 15.99,
+    "oldPrice": 21.99,
+    "rating": 4.5,
+    "reviews": 670,
+    "discount": "27% OFF",
+
+    "image": {
+      "placeholder": "./images/curtain_ph.jpg",
+      "small": "./images/curtain_sm.jpg",
+      "medium": "./images/curtain_md.jpg",
+      "large": "./images/curtain_lg.jpg",
+      "webp": "./images/curtain.webp",
+      "avif": "./images/curtain.avif"
+    }
+  },
+  {
+    "name": "Throw Blanket",
+    "description": "Fleece plush decorative couch blanket.",
+    "price": 21.99,
+    "oldPrice": 29.99,
+    "rating": 4.7,
+    "reviews": 1450,
+    "discount": "26% OFF",
+
+    "image": {
+      "placeholder": "./images/blanket_ph.jpg",
+      "small": "./images/blanket_sm.jpg",
+      "medium": "./images/blanket_md.jpg",
+      "large": "./images/blanket_lg.jpg",
+      "webp": "./images/blanket.webp",
+      "avif": "./images/blanket.avif"
+    }
+  },
+
+  {
+    "name": "The Great Gatsby",
+    "description": "Classic novel by F. Scott Fitzgerald.",
+    "price": 9.99,
+    "oldPrice": 14.99,
+    "rating": 4.6,
+    "reviews": 5600,
+    "discount": "33% OFF",
+    "image": {
+      "placeholder": "./images/gatsby_ph.jpg",
+      "small": "./images/gatsby_sm.jpg",
+      "medium": "./images/gatsby_md.jpg",
+      "large": "./images/gatsby_lg.jpg",
+      "webp": "./images/gatsby.webp",
+      "avif": "./images/gatsby.avif"
+    }
+  },
+  {
+    "name": "Atomic Habits",
+    "description": "Self-help book on building good habits by James Clear.",
+    "price": 16.99,
+    "oldPrice": 27.0,
+    "rating": 4.9,
+    "reviews": 15000,
+    "discount": "37% OFF",
+    "image": {
+      "placeholder": "./images/atomic_ph.jpg",
+      "small": "./images/atomic_sm.jpg",
+      "medium": "./images/atomic_md.jpg",
+      "large": "./images/atomic_lg.jpg",
+      "webp": "./images/atomic.webp",
+      "avif": "./images/atomic.avif"
+    }
+  },
+  {
+    "name": "1984 by George Orwell",
+    "description": "Dystopian social science fiction novel.",
+    "price": 11.99,
+    "oldPrice": 15.99,
+    "rating": 4.7,
+    "reviews": 9800,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/1984_ph.jpg",
+      "small": "./images/1984_sm.jpg",
+      "medium": "./images/1984_md.jpg",
+      "large": "./images/1984_lg.jpg",
+      "webp": "./images/1984.webp",
+      "avif": "./images/1984.avif"
+    }
+  },
+  {
+    "name": "Dune",
+    "description": "Epic science fiction novel by Frank Herbert.",
+    "price": 13.99,
+    "oldPrice": 18.99,
+    "rating": 4.8,
+    "reviews": 7500,
+    "discount": "26% OFF",
+    "image": {
+      "placeholder": "./images/dune_ph.jpg",
+      "small": "./images/dune_sm.jpg",
+      "medium": "./images/dune_md.jpg",
+      "large": "./images/dune_lg.jpg",
+      "webp": "./images/dune.webp",
+      "avif": "./images/dune.avif"
+    }
+  },
+  {
+    "name": "Python Crash Course",
+    "description": "A hands-on, project-based introduction to programming.",
+    "price": 29.99,
+    "oldPrice": 39.99,
+    "rating": 4.8,
+    "reviews": 3200,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/python_ph.jpg",
+      "small": "./images/python_sm.jpg",
+      "medium": "./images/python_md.jpg",
+      "large": "./images/python_lg.jpg",
+      "webp": "./images/python.webp",
+      "avif": "./images/python.avif"
+    }
+  },
+  {
+    "name": "The Hobbit",
+    "description": "Fantasy novel by J.R.R. Tolkien.",
+    "price": 10.99,
+    "oldPrice": 14.99,
+    "rating": 4.8,
+    "reviews": 8900,
+    "discount": "26% OFF",
+    "image": {
+      "placeholder": "./images/hobbit_ph.jpg",
+      "small": "./images/hobbit_sm.jpg",
+      "medium": "./images/hobbit_md.jpg",
+      "large": "./images/hobbit_lg.jpg",
+      "webp": "./images/hobbit.webp",
+      "avif": "./images/hobbit.avif"
+    }
+  },
+  {
+    "name": "Sapiens",
+    "description": "A Brief History of Humankind by Yuval Noah Harari.",
+    "price": 18.99,
+    "oldPrice": 24.99,
+    "rating": 4.6,
+    "reviews": 12000,
+    "discount": "24% OFF",
+    "image": {
+      "placeholder": "./images/sapiens_ph.jpg",
+      "small": "./images/sapiens_sm.jpg",
+      "medium": "./images/sapiens_md.jpg",
+      "large": "./images/sapiens_lg.jpg",
+      "webp": "./images/sapiens.webp",
+      "avif": "./images/sapiens.avif"
+    }
+  },
+  {
+    "name": "To Kill a Mockingbird",
+    "description": "Classic literature by Harper Lee.",
+    "price": 8.99,
+    "oldPrice": 12.99,
+    "rating": 4.9,
+    "reviews": 18000,
+    "discount": "30% OFF",
+    "image": {
+      "placeholder": "./images/mock_ph.jpg",
+      "small": "./images/mock_sm.jpg",
+      "medium": "./images/mock_md.jpg",
+      "large": "./images/mock_lg.jpg",
+      "webp": "./images/mock.webp",
+      "avif": "./images/mock.avif"
+    }
+  },
+  {
+    "name": "Thinking, Fast and Slow",
+    "description": "Psychology and economics book by Daniel Kahneman.",
+    "price": 15.99,
+    "oldPrice": 22.0,
+    "rating": 4.5,
+    "reviews": 6700,
+    "discount": "27% OFF",
+    "image": {
+      "placeholder": "./images/think_ph.jpg",
+      "small": "./images/think_sm.jpg",
+      "medium": "./images/think_md.jpg",
+      "large": "./images/think_lg.jpg",
+      "webp": "./images/think.webp",
+      "avif": "./images/think.avif"
+    }
+  },
+  {
+    "name": "The Catcher in the Rye",
+    "description": "Classic novel by J.D. Salinger.",
+    "price": 9.99,
+    "oldPrice": 13.99,
+    "rating": 4.4,
+    "reviews": 7200,
+    "discount": "28% OFF",
+    "image": {
+      "placeholder": "./images/catcher_ph.jpg",
+      "small": "./images/catcher_sm.jpg",
+      "medium": "./images/catcher_md.jpg",
+      "large": "./images/catcher_lg.jpg",
+      "webp": "./images/catcher.webp",
+      "avif": "./images/catcher.avif"
+    }
+  },
+  {
+    "name": "Harry Potter Box Set",
+    "description": "Complete 7-book collection by J.K. Rowling.",
+    "price": 59.99,
+    "oldPrice": 86.99,
+    "rating": 4.9,
+    "reviews": 25000,
+    "discount": "31% OFF",
+    "image": {
+      "placeholder": "./images/hpbox_ph.jpg",
+      "small": "./images/hpbox_sm.jpg",
+      "medium": "./images/hpbox_md.jpg",
+      "large": "./images/hpbox_lg.jpg",
+      "webp": "./images/hpbox.webp",
+      "avif": "./images/hpbox.avif"
+    }
+  },
+  {
+    "name": "Rich Dad Poor Dad",
+    "description": "Personal finance classic by Robert Kiyosaki.",
+    "price": 14.99,
+    "oldPrice": 19.99,
+    "rating": 4.7,
+    "reviews": 11000,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/richdad_ph.jpg",
+      "small": "./images/richdad_sm.jpg",
+      "medium": "./images/richdad_md.jpg",
+      "large": "./images/richdad_lg.jpg",
+      "webp": "./images/richdad.webp",
+      "avif": "./images/richdad.avif"
+    }
+  },
+  {
+    "name": "The Alchemist",
+    "description": "Philosophical novel by Paulo Coelho.",
+    "price": 11.99,
+    "oldPrice": 16.99,
+    "rating": 4.7,
+    "reviews": 13500,
+    "discount": "29% OFF",
+    "image": {
+      "placeholder": "./images/alchemist_ph.jpg",
+      "small": "./images/alchemist_sm.jpg",
+      "medium": "./images/alchemist_md.jpg",
+      "large": "./images/alchemist_lg.jpg",
+      "webp": "./images/alchemist.webp",
+      "avif": "./images/alchemist.avif"
+    }
+  },
+  {
+    "name": "Clean Code",
+    "description": "A Handbook of Agile Software Craftsmanship.",
+    "price": 34.99,
+    "oldPrice": 45.99,
+    "rating": 4.8,
+    "reviews": 4200,
+    "discount": "24% OFF",
+    "image": {
+      "placeholder": "./images/cleanc_ph.jpg",
+      "small": "./images/cleanc_sm.jpg",
+      "medium": "./images/cleanc_md.jpg",
+      "large": "./images/cleanc_lg.jpg",
+      "webp": "./images/cleanc.webp",
+      "avif": "./images/cleanc.avif"
+    }
+  },
+  {
+    "name": "Where the Crawdads Sing",
+    "description": "Mystery novel by Delia Owens.",
+    "price": 13.99,
+    "oldPrice": 18.0,
+    "rating": 4.8,
+    "reviews": 16000,
+    "discount": "22% OFF",
+    "image": {
+      "placeholder": "./images/crawdads_ph.jpg",
+      "small": "./images/crawdads_sm.jpg",
+      "medium": "./images/crawdads_md.jpg",
+      "large": "./images/crawdads_lg.jpg",
+      "webp": "./images/crawdads.webp",
+      "avif": "./images/crawdads.avif"
+    }
+  },
+  {
+    "name": "The Subtle Art",
+    "description": "A counterintuitive approach to living a good life.",
+    "price": 14.99,
+    "oldPrice": 20.0,
+    "rating": 4.6,
+    "reviews": 14000,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/subtle_ph.jpg",
+      "small": "./images/subtle_sm.jpg",
+      "medium": "./images/subtle_md.jpg",
+      "large": "./images/subtle_lg.jpg",
+      "webp": "./images/subtle.webp",
+      "avif": "./images/subtle.avif"
+    }
+  },
+  {
+    "name": "Can't Hurt Me",
+    "description": "Master Your Mind and Defy the Odds by David Goggins.",
+    "price": 17.99,
+    "oldPrice": 22.99,
+    "rating": 4.9,
+    "reviews": 11000,
+    "discount": "21% OFF",
+    "image": {
+      "placeholder": "./images/goggins_ph.jpg",
+      "small": "./images/goggins_sm.jpg",
+      "medium": "./images/goggins_md.jpg",
+      "large": "./images/goggins_lg.jpg",
+      "webp": "./images/goggins.webp",
+      "avif": "./images/goggins.avif"
+    }
+  },
+  {
+    "name": "Educated: A Memoir",
+    "description": "Bestselling memoir by Tara Westover.",
+    "price": 15.99,
+    "oldPrice": 21.0,
+    "rating": 4.7,
+    "reviews": 9500,
+    "discount": "24% OFF",
+    "image": {
+      "placeholder": "./images/educated_ph.jpg",
+      "small": "./images/educated_sm.jpg",
+      "medium": "./images/educated_md.jpg",
+      "large": "./images/educated_lg.jpg",
+      "webp": "./images/educated.webp",
+      "avif": "./images/educated.avif"
+    }
+  },
+  {
+    "name": "Lord of the Flies",
+    "description": "Novel by William Golding.",
+    "price": 10.99,
+    "oldPrice": 14.99,
+    "rating": 4.4,
+    "reviews": 5400,
+    "discount": "26% OFF",
+    "image": {
+      "placeholder": "./images/lotf_ph.jpg",
+      "small": "./images/lotf_sm.jpg",
+      "medium": "./images/lotf_md.jpg",
+      "large": "./images/lotf_lg.jpg",
+      "webp": "./images/lotf.webp",
+      "avif": "./images/lotf.avif"
+    }
+  },
+  {
+    "name": "Goodnight Moon",
+    "description": "Classic children's bedtime story.",
+    "price": 7.99,
+    "oldPrice": 10.99,
+    "rating": 4.9,
+    "reviews": 21000,
+    "discount": "27% OFF",
+    "image": {
+      "placeholder": "./images/moon_ph.jpg",
+      "small": "./images/moon_sm.jpg",
+      "medium": "./images/moon_md.jpg",
+      "large": "./images/moon_lg.jpg",
+      "webp": "./images/moon.webp",
+      "avif": "./images/moon.avif"
+    }
+  },
+
+  {
+    "name": "Yoga Mat",
+    "description": "Eco-friendly non-slip exercise mat with carrying strap.",
+    "price": 24.99,
+    "oldPrice": 34.99,
+    "rating": 4.6,
+    "reviews": 3400,
+    "discount": "28% OFF",
+    "image": {
+      "placeholder": "./images/ymat_ph.jpg",
+      "small": "./images/ymat_sm.jpg",
+      "medium": "./images/ymat_md.jpg",
+      "large": "./images/ymat_lg.jpg",
+      "webp": "./images/ymat.webp",
+      "avif": "./images/ymat.avif"
+    }
+  },
+  {
+    "name": "Adjustable Dumbbells",
+    "description": "Set of 2 cast iron adjustable weights.",
+    "price": 99.99,
+    "oldPrice": 149.99,
+    "rating": 4.8,
+    "reviews": 1200,
+    "discount": "33% OFF",
+    "image": {
+      "placeholder": "./images/dumb_ph.jpg",
+      "small": "./images/dumb_sm.jpg",
+      "medium": "./images/dumb_md.jpg",
+      "large": "./images/dumb_lg.jpg",
+      "webp": "./images/dumb.webp",
+      "avif": "./images/dumb.avif"
+    }
+  },
+  {
+    "name": "Resistance Bands Set",
+    "description": "5 exercise bands with door anchor and handles.",
+    "price": 19.99,
+    "oldPrice": 29.99,
+    "rating": 4.5,
+    "reviews": 4500,
+    "discount": "33% OFF",
+    "image": {
+      "placeholder": "./images/bands_ph.jpg",
+      "small": "./images/bands_sm.jpg",
+      "medium": "./images/bands_md.jpg",
+      "large": "./images/bands_lg.jpg",
+      "webp": "./images/bands.webp",
+      "avif": "./images/bands.avif"
+    }
+  },
+  {
+    "name": "Camping Tent",
+    "description": "4-person waterproof pop-up family tent.",
+    "price": 129.99,
+    "oldPrice": 169.99,
+    "rating": 4.4,
+    "reviews": 890,
+    "discount": "23% OFF",
+    "image": {
+      "placeholder": "./images/tent_ph.jpg",
+      "small": "./images/tent_sm.jpg",
+      "medium": "./images/tent_md.jpg",
+      "large": "./images/tent_lg.jpg",
+      "webp": "./images/tent.webp",
+      "avif": "./images/tent.avif"
+    }
+  },
+  {
+    "name": "Sleeping Bag",
+    "description": "Lightweight 3-season envelope sleeping bag.",
+    "price": 35.99,
+    "oldPrice": 49.99,
+    "rating": 4.5,
+    "reviews": 1100,
+    "discount": "28% OFF",
+    "image": {
+      "placeholder": "./images/sbag_ph.jpg",
+      "small": "./images/sbag_sm.jpg",
+      "medium": "./images/sbag_md.jpg",
+      "large": "./images/sbag_lg.jpg",
+      "webp": "./images/sbag.webp",
+      "avif": "./images/sbag.avif"
+    }
+  },
+  {
+    "name": "Hydration Backpack",
+    "description": "Cycling and hiking bag with 2L water bladder.",
+    "price": 28.99,
+    "oldPrice": 39.99,
+    "rating": 4.6,
+    "reviews": 750,
+    "discount": "27% OFF",
+    "image": {
+      "placeholder": "./images/hydro_ph.jpg",
+      "small": "./images/hydro_sm.jpg",
+      "medium": "./images/hydro_md.jpg",
+      "large": "./images/hydro_lg.jpg",
+      "webp": "./images/hydro.webp",
+      "avif": "./images/hydro.avif"
+    }
+  },
+  {
+    "name": "Jump Rope",
+    "description": "Tangle-free rapid speed skipping rope.",
+    "price": 9.99,
+    "oldPrice": 14.99,
+    "rating": 4.7,
+    "reviews": 2300,
+    "discount": "33% OFF",
+    "image": {
+      "placeholder": "./images/rope_ph.jpg",
+      "small": "./images/rope_sm.jpg",
+      "medium": "./images/rope_md.jpg",
+      "large": "./images/rope_lg.jpg",
+      "webp": "./images/rope.webp",
+      "avif": "./images/rope.avif"
+    }
+  },
+  {
+    "name": "Protein Shaker Bottle",
+    "description": "24oz leak-proof blender cup.",
+    "price": 11.99,
+    "oldPrice": 16.99,
+    "rating": 4.5,
+    "reviews": 3100,
+    "discount": "29% OFF",
+    "image": {
+      "placeholder": "./images/shaker_ph.jpg",
+      "small": "./images/shaker_sm.jpg",
+      "medium": "./images/shaker_md.jpg",
+      "large": "./images/shaker_lg.jpg",
+      "webp": "./images/shaker.webp",
+      "avif": "./images/shaker.avif"
+    }
+  },
+  {
+    "name": "Bicycle Helmet",
+    "description": "Adult cycling helmet with adjustable fit dial.",
+    "price": 34.99,
+    "oldPrice": 45.99,
+    "rating": 4.6,
+    "reviews": 890,
+    "discount": "24% OFF",
+    "image": {
+      "placeholder": "./images/helmet_ph.jpg",
+      "small": "./images/helmet_sm.jpg",
+      "medium": "./images/helmet_md.jpg",
+      "large": "./images/helmet_lg.jpg",
+      "webp": "./images/helmet.webp",
+      "avif": "./images/helmet.avif"
+    }
+  },
+  {
+    "name": "Treadmill",
+    "description": "Folding electric exercise running machine.",
+    "price": 399.99,
+    "oldPrice": 499.99,
+    "rating": 4.3,
+    "reviews": 450,
+    "discount": "20% OFF",
+    "image": {
+      "placeholder": "./images/tread_ph.jpg",
+      "small": "./images/tread_sm.jpg",
+      "medium": "./images/tread_md.jpg",
+      "large": "./images/tread_lg.jpg",
+      "webp": "./images/tread.webp",
+      "avif": "./images/tread.avif"
+    }
+  },
+  {
+    "name": "Foam Roller",
+    "description": "High density deep tissue massager.",
+    "price": 18.99,
+    "oldPrice": 24.99,
+    "rating": 4.7,
+    "reviews": 1600,
+    "discount": "24% OFF",
+    "image": {
+      "placeholder": "./images/roller_ph.jpg",
+      "small": "./images/roller_sm.jpg",
+      "medium": "./images/roller_md.jpg",
+      "large": "./images/roller_lg.jpg",
+      "webp": "./images/roller.webp",
+      "avif": "./images/roller.avif"
+    }
+  },
+  {
+    "name": "Soccer Ball",
+    "description": "Size 5 traditional training football.",
+    "price": 19.99,
+    "oldPrice": 29.99,
+    "rating": 4.5,
+    "reviews": 820,
+    "discount": "33% OFF",
+    "image": {
+      "placeholder": "./images/soccer_ph.jpg",
+      "small": "./images/soccer_sm.jpg",
+      "medium": "./images/soccer_md.jpg",
+      "large": "./images/soccer_lg.jpg",
+      "webp": "./images/soccer.webp",
+      "avif": "./images/soccer.avif"
+    }
+  },
+  {
+    "name": "Basketball",
+    "description": "Indoor/Outdoor composite leather basketball.",
+    "price": 24.99,
+    "oldPrice": 34.99,
+    "rating": 4.8,
+    "reviews": 1100,
+    "discount": "28% OFF",
+    "image": {
+      "placeholder": "./images/bball_ph.jpg",
+      "small": "./images/bball_sm.jpg",
+      "medium": "./images/bball_md.jpg",
+      "large": "./images/bball_lg.jpg",
+      "webp": "./images/bball.webp",
+      "avif": "./images/bball.avif"
+    }
+  },
+  {
+    "name": "Tennis Racket",
+    "description": "Lightweight adult tennis racquet with cover.",
+    "price": 49.99,
+    "oldPrice": 69.99,
+    "rating": 4.4,
+    "reviews": 340,
+    "discount": "28% OFF",
+    "image": {
+      "placeholder": "./images/racket_ph.jpg",
+      "small": "./images/racket_sm.jpg",
+      "medium": "./images/racket_md.jpg",
+      "large": "./images/racket_lg.jpg",
+      "webp": "./images/racket.webp",
+      "avif": "./images/racket.avif"
+    }
+  },
+  {
+    "name": "Golf Balls (12-Pack)",
+    "description": "Distance and durability premium golf balls.",
+    "price": 22.99,
+    "oldPrice": 29.99,
+    "rating": 4.6,
+    "reviews": 650,
+    "discount": "23% OFF",
+    "image": {
+      "placeholder": "./images/golf_ph.jpg",
+      "small": "./images/golf_sm.jpg",
+      "medium": "./images/golf_md.jpg",
+      "large": "./images/golf_lg.jpg",
+      "webp": "./images/golf.webp",
+      "avif": "./images/golf.avif"
+    }
+  },
+  {
+    "name": "Pull-Up Bar",
+    "description": "Doorway chin-up bar for home gym.",
+    "price": 29.99,
+    "oldPrice": 39.99,
+    "rating": 4.3,
+    "reviews": 2100,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/pull_ph.jpg",
+      "small": "./images/pull_sm.jpg",
+      "medium": "./images/pull_md.jpg",
+      "large": "./images/pull_lg.jpg",
+      "webp": "./images/pull.webp",
+      "avif": "./images/pull.avif"
+    }
+  },
+  {
+    "name": "Kettlebell 20lbs",
+    "description": "Cast iron kettlebell for strength training.",
+    "price": 35.0,
+    "oldPrice": 45.0,
+    "rating": 4.8,
+    "reviews": 980,
+    "discount": "22% OFF",
+    "image": {
+      "placeholder": "./images/kbell_ph.jpg",
+      "small": "./images/kbell_sm.jpg",
+      "medium": "./images/kbell_md.jpg",
+      "large": "./images/kbell_lg.jpg",
+      "webp": "./images/kbell.webp",
+      "avif": "./images/kbell.avif"
+    }
+  },
+  {
+    "name": "Boxing Gloves",
+    "description": "Synthetic leather training sparring gloves.",
+    "price": 27.99,
+    "oldPrice": 39.99,
+    "rating": 4.5,
+    "reviews": 560,
+    "discount": "30% OFF",
+    "image": {
+      "placeholder": "./images/glove_ph.jpg",
+      "small": "./images/glove_sm.jpg",
+      "medium": "./images/glove_md.jpg",
+      "large": "./images/glove_lg.jpg",
+      "webp": "./images/glove.webp",
+      "avif": "./images/glove.avif"
+    }
+  },
+  {
+    "name": "Skateboard",
+    "description": "31-inch complete standard skate board.",
+    "price": 45.99,
+    "oldPrice": 59.99,
+    "rating": 4.4,
+    "reviews": 410,
+    "discount": "23% OFF",
+    "image": {
+      "placeholder": "./images/skate_ph.jpg",
+      "small": "./images/skate_sm.jpg",
+      "medium": "./images/skate_md.jpg",
+      "large": "./images/skate_lg.jpg",
+      "webp": "./images/skate.webp",
+      "avif": "./images/skate.avif"
+    }
+  },
+  {
+    "name": "Camping Lantern",
+    "description": "LED collapsible battery powered tent light.",
+    "price": 14.99,
+    "oldPrice": 19.99,
+    "rating": 4.7,
+    "reviews": 1500,
+    "discount": "25% OFF",
+    "image": {
+      "placeholder": "./images/lantern_ph.jpg",
+      "small": "./images/lantern_sm.jpg",
+      "medium": "./images/lantern_md.jpg",
+      "large": "./images/lantern_lg.jpg",
+      "webp": "./images/lantern.webp",
+      "avif": "./images/lantern.avif"
+    }
+  }
+]

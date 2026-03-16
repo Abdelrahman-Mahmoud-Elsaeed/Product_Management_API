@@ -1,0 +1,187 @@
+[
+  {
+    "name": "Electronics",
+    "description": "Smartphones, laptops, tablets, and general electronic devices.",
+    "icon": "Laptop"
+  },
+  {
+    "name": "Clothing & Apparel",
+    "description": "Everyday wear, formal attire, and seasonal clothing for all ages.",
+    "icon": "Shirt"
+  },
+  {
+    "name": "Home & Kitchen",
+    "description": "Cookware, appliances, furniture, and decorative items for the home.",
+    "icon": "Home"
+  },
+  {
+    "name": "Books",
+    "description": "Fiction, non-fiction, educational textbooks, and comic books.",
+    "icon": "Book"
+  },
+  {
+    "name": "Sports & Outdoors",
+    "description": "Athletic wear, fitness equipment, camping gear, and outdoor games.",
+    "icon": "Dumbbell"
+  },
+  {
+    "name": "Beauty & Personal Care",
+    "description": "Skincare, makeup, haircare, and daily grooming essentials.",
+    "icon": "Sparkles"
+  },
+  {
+    "name": "Toys & Games",
+    "description": "Board games, action figures, puzzles, and educational toys.",
+    "icon": "Gamepad"
+  },
+  {
+    "name": "Automotive",
+    "description": "Car parts, interior accessories, cleaning supplies, and tools.",
+    "icon": "Car"
+  },
+  {
+    "name": "Health & Household",
+    "description": "Vitamins, medical supplies, cleaning products, and paper goods.",
+    "icon": "HeartPulse"
+  },
+  {
+    "name": "Grocery & Gourmet Food",
+    "description": "Pantry staples, snacks, beverages, and specialty ingredients.",
+    "icon": "ShoppingBasket"
+  },
+  {
+    "name": "Pet Supplies",
+    "description": "Food, toys, beds, and grooming products for dogs, cats, and other pets.",
+    "icon": "PawPrint"
+  },
+  {
+    "name": "Office Products",
+    "description": "Stationery, desk organizers, printers, and office furniture.",
+    "icon": "Briefcase"
+  },
+  {
+    "name": "Tools & Home Improvement",
+    "description": "Power tools, hand tools, hardware, and building materials.",
+    "icon": "Hammer"
+  },
+  {
+    "name": "Baby Products",
+    "description": "Diapers, strollers, nursery furniture, and baby clothing.",
+    "icon": "Baby"
+  },
+  {
+    "name": "Industrial & Scientific",
+    "description": "Lab equipment, safety gear, and commercial-grade supplies.",
+    "icon": "FlaskConical"
+  },
+  {
+    "name": "Musical Instruments",
+    "description": "Guitars, keyboards, drums, and audio recording equipment.",
+    "icon": "Music"
+  },
+  {
+    "name": "Arts, Crafts & Sewing",
+    "description": "Painting supplies, yarn, fabrics, and crafting tools.",
+    "icon": "Palette"
+  },
+  {
+    "name": "Video Games",
+    "description": "Consoles, games, and gaming accessories for various platforms.",
+    "icon": "Gamepad2"
+  },
+  {
+    "name": "Garden & Outdoor",
+    "description": "Plants, seeds, gardening tools, and patio furniture.",
+    "icon": "TreePine"
+  },
+  {
+    "name": "Fine Art",
+    "description": "Original paintings, sculptures, and limited-edition prints.",
+    "icon": "Image"
+  },
+  {
+    "name": "Collectibles",
+    "description": "Trading cards, rare coins, stamps, and vintage memorabilia.",
+    "icon": "Gem"
+  },
+  {
+    "name": "Software",
+    "description": "Operating systems, productivity suites, and creative software.",
+    "icon": "Code"
+  },
+  {
+    "name": "Movies & Television",
+    "description": "DVDs, Blu-rays, and physical media for films and TV shows.",
+    "icon": "Film"
+  },
+  {
+    "name": "CDs & Vinyl",
+    "description": "Music albums on CD, vinyl records, and cassette tapes.",
+    "icon": "Disc"
+  },
+  {
+    "name": "Handmade",
+    "description": "Artisan crafts, custom jewelry, and bespoke home decor.",
+    "icon": "Scissors"
+  },
+  {
+    "name": "Cell Phones & Accessories",
+    "description": "Cases, chargers, screen protectors, and mobile accessories.",
+    "icon": "Smartphone"
+  },
+  {
+    "name": "Camera & Photo",
+    "description": "Digital cameras, lenses, tripods, and photography studio gear.",
+    "icon": "Camera"
+  },
+  {
+    "name": "Computers & Accessories",
+    "description": "Monitors, keyboards, mice, and internal PC components.",
+    "icon": "Monitor"
+  },
+  {
+    "name": "Smart Home",
+    "description": "Smart bulbs, security cameras, voice assistants, and thermostats.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Luggage & Travel Gear",
+    "description": "Suitcases, backpacks, travel adapters, and packing cubes.",
+    "icon": "Luggage"
+  },
+  {
+    "name": "Shoes & Footwear",
+    "description": "Sneakers, boots, formal shoes, and athletic footwear.",
+    "icon": "Footprints"
+  },
+  {
+    "name": "Jewelry & Watches",
+    "description": "Rings, necklaces, bracelets, and luxury timepieces.",
+    "icon": "Watch"
+  },
+  {
+    "name": "Furniture",
+    "description": "Sofas, beds, dining tables, and storage cabinets.",
+    "icon": "Sofa"
+  },
+  {
+    "name": "Lighting",
+    "description": "Lamps, ceiling fixtures, outdoor lights, and smart lighting.",
+    "icon": "Lightbulb"
+  },
+  {
+    "name": "Plumbing Supplies",
+    "description": "Faucets, pipes, fittings, and bathroom fixtures.",
+    "icon": "Droplet"
+  },
+  {
+    "name": "Apparel & Accessories",
+    "description": "Clothing, shoes, and everyday wear.",
+    "icon": "ShoppingBag"
+  },
+  {
+    "name": "Books & Media",
+    "description": "Reading materials, games, and entertainment.",
+    "icon": "Library"
+  }
+]

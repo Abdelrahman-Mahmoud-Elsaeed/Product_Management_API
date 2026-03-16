@@ -1,0 +1,212 @@
+[
+  {
+    "name": "ADMIN",
+    "email": "admin@mystore.com",
+    "age": 35,
+    "password": "SuperSecretPassword!",
+    "role": "admin"
+  },
+  {
+    "name": "SARAH CONNOR",
+    "email": "sarah.connor@example.com",
+    "age": 29,
+    "password": "password1234",
+    "role": "admin"
+  },
+  {
+    "name": "JOHN DOE",
+    "email": "johndoe@example.com",
+    "age": 25,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "JANE SMITH",
+    "email": "janesmith@example.com",
+    "age": 42,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "MICHAEL JOHNSON",
+    "email": "mjohnson88@example.com",
+    "age": 36,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "EMILY DAVIS",
+    "email": "edavis.tech@example.com",
+    "age": 22,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "DAVID WILSON",
+    "email": "dwilson_sports@example.com",
+    "age": 51,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "CHLOE MARTINEZ",
+    "email": "chloe.m@example.com",
+    "age": 19,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "ROBERT TAYLOR",
+    "email": "rtaylor_99@example.com",
+    "age": 60,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "AMANDA WHITE",
+    "email": "awhite.design@example.com",
+    "age": 31,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "CHRIS EVANS",
+    "email": "cevans@example.com",
+    "age": 40,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "NATALIE PORTMAN",
+    "email": "nportman@example.com",
+    "age": 43,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "BRUCE WAYNE",
+    "email": "bwayne@example.com",
+    "age": 38,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "CLARK KENT",
+    "email": "ckent@example.com",
+    "age": 33,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "DIANA PRINCE",
+    "email": "dprince@example.com",
+    "age": 28,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "PETER PARKER",
+    "email": "pparker@example.com",
+    "age": 21,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "TONY STARK",
+    "email": "tstark@example.com",
+    "age": 48,
+    "password": "password1234",
+    "role": "admin"
+  },
+  {
+    "name": "STEVE ROGERS",
+    "email": "srogers@example.com",
+    "age": 99,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "NATASHA ROMANOFF",
+    "email": "nromanoff@example.com",
+    "age": 34,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "BRUCE BANNER",
+    "email": "bbanner@example.com",
+    "age": 41,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "WANDA MAXIMOFF",
+    "email": "wmaximoff@example.com",
+    "age": 26,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "VISION SYNTH",
+    "email": "vsynth@example.com",
+    "age": 18,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "SAM WILSON",
+    "email": "swilson@example.com",
+    "age": 32,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "BUCKY BARNES",
+    "email": "bbarnes@example.com",
+    "age": 85,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "SCOTT LANG",
+    "email": "slang@example.com",
+    "age": 39,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "HOPE VAN DYNE",
+    "email": "hvandyne@example.com",
+    "age": 37,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "STEPHEN STRANGE",
+    "email": "sstrange@example.com",
+    "age": 42,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "CAROL DANVERS",
+    "email": "cdanvers@example.com",
+    "age": 30,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "TCHALLA KING",
+    "email": "tking@example.com",
+    "age": 35,
+    "password": "password1234",
+    "role": "user"
+  },
+  {
+    "name": "NICK FURY",
+    "email": "nfury@example.com",
+    "age": 65,
+    "password": "password1234",
+    "role": "admin"
+  }
+]

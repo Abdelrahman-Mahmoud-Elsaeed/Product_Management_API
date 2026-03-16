@@ -1,0 +1,181 @@
+Product Management API System
+1. Project Overview
+In this capstone project, will design and implement a complete backend API system that manages:
+•	Users
+•	Products
+•	Categories
+The system will expose a RESTful API that allows clients (frontend apps to interact with the backend.
+2. System Modules
+The system will include three main entities.
+2.1 Users
+Represents users who can access the system.
+Example fields:
+id
+name
+email
+password
+role
+createdAt
+Roles may include:
+admin
+user
+________________________________________
+2.2 Categories
+Represents product categories.
+Example fields:
+id
+name
+description
+createdAt
+________________________________________
+2.3 Products
+Represents items sold or managed in the system.
+Example fields:
+id
+name
+description
+price
+image
+categoryId
+createdBy
+createdAt
+Relationship example:
+Category (1) -------- (Many) Products
+User (1) -------- (Many) Products
+________________________________________
+3. Required Features
+The API must support the following functionality.
+User Authentication
+•	Register user
+•	Login user
+•	Generate JWT token
+•	Protect private routes
+•	Role-based access control
+________________________________________
+Category Management
+CRUD operations:
+GET /categories
+GET /categories/:id
+POST /categories
+PUT /categories/:id
+DELETE /categories/:id
+________________________________________
+Product Management
+CRUD operations:
+GET /products
+GET /products/:id
+POST /products
+PUT /products/:id
+DELETE /products/:id
+Additional feature:
+Upload product image
+________________________________________
+4. Professional Project Folder Structure
+ must organize the project following a clean architecture similar to real companies.
+Example structure:
+This structure separates:
+•	routes
+•	controllers
+•	business logic
+•	database models
+•	middleware
+________________________________________
+5. Project Development Phases
+must implement the project in clear development stages.
+________________________________________
+Phase 1 — Project Setup
+Objective
+Initialize the backend project.
+Tasks
+•	Install framework
+•	Create basic HTTP server
+•	Configure environment variables
+•	Setup project folder structure
+________________________________________
+Phase 2 — REST API Implementation
+Objective
+Implement RESTful endpoints.
+Tasks
+Implement CRUD endpoints for:
+•	Categories
+•	Products
+Follow REST conventions.
+Example:
+GET /products
+POST /products
+GET /products/:id
+PUT /products/:id
+DELETE /products/:id
+________________________________________
+Phase 3 — Database Integration
+Objective
+Connect backend to database.
+NoSQL
+•	MongoDB
+Tasks
+•	Design database 
+•	Create collections
+•	Implement CRUD operations
+Example relationship:
+Products.categoryId -> Categories.id
+________________________________________
+Phase 4 — Authentication and Authorization
+Objective
+Secure the API.
+Tasks
+Implement:
+POST /auth/register
+POST /auth/login
+Use JWT tokens.
+Protected routes must require:
+Authorization: Bearer <token>
+Role permissions example:
+Admin → create/update/delete products
+User → read products
+________________________________________
+Phase 5 — Middleware Implementation
+Objective
+Add reusable middleware.
+Required middleware:
+Request Logger
+Logs:
+HTTP Method
+Request URL
+Time
+Authentication Middleware
+Validates JWT token.
+Error Handle  Middleware (look phase 8)
+________________________________________
+Phase 6 — File Uploads
+Objective
+Allow uploading product images.
+Endpoint example:
+POST /products/:id/upload-image
+Features:
+•	Upload file
+•	Save file path in database
+•	Serve static images
+________________________________________
+Phase 7 — API Testing and Documentation
+Objective
+Ensure API correctness.
+Postman Collection
+Include all endpoints.
+________________________________________
+Phase 8 — Error Handling and Logging
+Objective
+Improve system reliability.
+Add global error handler.
+Logging tools may include:
+Morgan
+________________________________________
+Phase 9 — Security and Validation
+Objective
+Protect the system from vulnerabilities.
+Students must implement:
+Input Validation
+Libraries:
+Joi
+express-validator
+________________________________________
+

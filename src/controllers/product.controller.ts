@@ -187,7 +187,6 @@ export const uploadProductImage = async (
           .toFile(path.join(uploadDir, "medium", `${filename}.jpg`)),
       ]);
 
-      // Update the DB with the rest of the paths
       await Product.findByIdAndUpdate(req.params.id, {
         "image.low": `/uploads/low/${filename}.jpg`,
         "image.placeholder": `/uploads/placeholder/${filename}.webp`,

@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response) => {
     name: user.name,
   };
 
-  const token = signToken(payload, 4 * 3600);
+  const token = signToken(payload, 24 * 3600);
 
   return sendResponse(res, 200, "Login successful", {
     token,
@@ -45,13 +45,12 @@ export const register = async (req: Request, res: Response) => {
   }
 
   const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, salt);
 
   const createdUser = await User.create({
     name,
     email,
     age,
-    password: hashedPassword,
+    password,
     role: role || "user",
   });
 
@@ -62,7 +61,7 @@ export const register = async (req: Request, res: Response) => {
     name: createdUser.name,
   };
 
-  const token = signToken(payload, 4 * 3600);
+  const token = signToken(payload, 24 * 3600);
 
   return sendResponse(res, 201, "User created successfully", {
     token,

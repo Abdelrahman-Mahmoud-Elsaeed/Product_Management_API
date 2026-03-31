@@ -11,6 +11,7 @@ export const createCategoryValidator = (req: Request, res: Response, next: NextF
       "string.max": "Category name must be at most 100 characters",
     }),
     description: Joi.string().max(500).allow("", null).optional(),
+    icon: Joi.string().allow("", null).required()
   });
 
   const { error } = schema.validate(req.body, { abortEarly: false });
@@ -24,6 +25,7 @@ export const updateCategoryValidator = (req: Request, res: Response, next: NextF
   const schema = Joi.object({
     name: Joi.string().min(2).max(100).optional(),
     description: Joi.string().max(500).allow("", null).optional(),
+    icon: Joi.string().allow("", null).required()
   }).min(1);
 
   const { error } = schema.validate(req.body, { abortEarly: false });

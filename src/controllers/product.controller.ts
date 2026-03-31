@@ -6,6 +6,7 @@ import path from "path";
 import fs from "fs/promises";
 import type { AuthRequest } from "../middlewares/auth.middleware.ts";
 import { sendResponse } from "../utils/sendResponse.ts";
+import { __dirname } from "../utils/dirname.ts";
 
 export const createProduct = async (req: AuthRequest, res: Response) => {
   const { name, description, price, categoryId } = req.body;

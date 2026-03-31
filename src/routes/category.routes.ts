@@ -40,6 +40,8 @@ const categoryRouter = express.Router();
  *                     type: string
  *                   description:
  *                     type: string
+ *                   icon:
+ *                    type: string
  */
 categoryRouter.get("/", asyncHandler(getCategories));
 

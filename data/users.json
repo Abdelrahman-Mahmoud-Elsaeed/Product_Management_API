@@ -1,6 +1,6 @@
 [
   {
-    "name": "ADMIN",
+    "name": "SUPERADMIN",
     "email": "admin@mystore.com",
     "age": 35,
     "password": "SuperSecretPassword!",

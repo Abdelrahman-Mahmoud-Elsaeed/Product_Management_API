@@ -38,6 +38,5 @@ export const specs = swaggerJsdoc(options);
 
 export const setupSwagger = (app: Express) => {
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
-  // optional: JSON endpoint
   app.get("/api-docs.json", (_req, res) => res.json(specs));
 };

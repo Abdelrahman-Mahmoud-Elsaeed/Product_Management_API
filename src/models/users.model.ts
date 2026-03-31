@@ -1,64 +1,37 @@
-import mongoose, { Schema, Types } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
+import bcrypt from "bcrypt";
 
-const userSchema = new Schema(
+interface IUser extends Document {
+  name: string;
+  email: string;
+  age?: number;
+  password: string;
+  role: "admin" | "user";
+  createdAt: Date;
+}
+
+const userSchema = new Schema<IUser>(
   {
-    name: {
-      type: String,
-      required: true,
-      unique: true,
-      minlength: 3,
-      maxlength: 30,
-      uppercase: true,
-      trim: true,
-    },
-
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
-      match: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-    },
-
-    age: {
-      type: Number,
-      min: 18,
-      max: 100,
-    },
-
-    password: {
-      type: String,
-      required: true,
-      minlength: 8,
-    },
-
-    role: {
-      type: String,
-      enum: ["admin", "user"],
-      default: "user",
-    },
-
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
+    name: { type: String, required: true, unique: true, uppercase: true, trim: true },
+    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+    age: { type: Number, min: 18, max: 100 },
+    password: { type: String, required: true, minlength: 8 },
+    role: { type: String, enum: ["admin", "user"], default: "user" },
+    createdAt: { type: Date, default: Date.now },
   },
-  {
-    timestamps: true,
-  },
+  { timestamps: true }
 );
 
-userSchema.pre("save", function () {
-  if (this.name === "ADMIN") {
-    this.name = "SUPERADMIN";
+userSchema.pre("save", async function () {
+  if (this.isModified("password")) {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
   }
 });
 
-userSchema.post("save", function (doc) {
-  console.log(`${doc.name} saved successfully`);
-});
 
-const User = mongoose.model("Users", userSchema);
+const User = mongoose.model<IUser>("Users", userSchema);
 
 export default User;
+
+

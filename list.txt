@@ -12,7 +12,7 @@ SESSION_SECRET="b4w2TRWArA4lC9fv+HsJ4vfcuDZ4Al558gHO6gCxEw0="
 
 
 node image
-npm install -D tsx
+npm install
 npm run build
 npm run start 
 expose 3000

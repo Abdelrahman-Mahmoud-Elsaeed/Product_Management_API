@@ -1,31 +1,11 @@
-- name: Semgrep
-  run: |
-    semgrep scan \
-      --config=p/nodejs \
-      --config=p/javascript \
-      --config=p/typescript \
-      --config=p/owasp-top-ten \
-      --exclude=node_modules \
-      --exclude=dist \
-      --exclude=build \
-      --exclude=coverage \
-      --exclude=data \
-      --exclude=logs \
-      --exclude=.git \
-      --exclude=.github \
-      --exclude=.vscode \
-      --exclude=.idea \
-      --exclude=tmp \
-      --exclude=temp \
-      --exclude=public \
-      --exclude=uploads \
-      --exclude=docs \
-      --exclude=terraform \
-      --exclude=**/*.min.js \
-      --exclude=**/*.bundle.js \
-      --exclude=**/*.map \
-      --exclude=**/*.log \
-      --exclude=package-lock.json \
-      --exclude=pnpm-lock.yaml \
-      --exclude=yarn.lock \
-      --exclude=server.ts
+extends:
+  - config:recommended
+
+rules: []
+
+ignore:
+  - node_modules
+  - dist
+  - coverage
+  - data
+  - server.ts

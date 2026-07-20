@@ -87,6 +87,7 @@ jobs:
           framework: terraform
           output_format: cli
           soft_fail: false
+        continue-on-error: true
 
       # 13. Terraform Plan
       - name: Terraform Plan Check

@@ -52,14 +52,14 @@ jobs:
       # 7. Terraform Apply (Infrastructure Provisioning)
       - name: Terraform Apply
         run: |
-          cd env/prod
+          cd terraform/env/dev
           terraform apply -auto-approve tfplan
 
       # 8. Build, Tag, and Push Image to Amazon ECR
       - name: Build and Push Docker Image to ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: prod-app-repo
+          ECR_REPOSITORY: dev-app-repo
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
@@ -71,20 +71,20 @@ jobs:
       - name: Deploy to Amazon ECS
         run: |
           aws ecs update-service \
-            --cluster prod-ecs-cluster \
-            --service prod-service \
+            --cluster dev-ecs-cluster \
+            --service dev-service \
             --force-new-deployment
 
       - name: Wait for ECS Service Stability
         run: |
           aws ecs wait services-stable \
-            --cluster prod-ecs-cluster \
-            --services prod-service
+            --cluster dev-ecs-cluster \
+            --services dev-service
 
       # 10. Health Check
       - name: ALB Health Check
         run: |
-          cd env/prod
+          cd terraform/env/dev
           ALB_DNS=$(terraform output -raw alb_dns_endpoint)
           echo "Testing health endpoint at http://${ALB_DNS}/"
           

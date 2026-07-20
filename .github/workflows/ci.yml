@@ -55,11 +55,13 @@ jobs:
       - name: Dependency Scanning (SCA)
         run: npm audit --audit-level=high
 
-      # 9. SAST (Semgrep)
+      # 9. SAST Scanning (Semgrep official Docker container)
       - name: SAST Scanning (Semgrep)
-        uses: semgrep/semgrep-action@v1
-        with:
-          config: auto
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}:/src" \
+            semgrep/semgrep \
+            semgrep scan --config auto
 
       # 10. Terraform Setup
       - name: Setup Terraform
@@ -91,13 +93,13 @@ jobs:
         run: |
           cd terraform/env/dev
           terraform plan
-      
-      # 13. Build Docker Image
+
+      # 14. Build Docker Image
       - name: Build Docker Image
         run: |
           docker build -t test-app:local .
 
-      # 14. Container Image Scan (Trivy)
+      # 15. Container Image Scan (Trivy)
       - name: Container Image Scan (Trivy)
         uses: aquasecurity/trivy-action@master
         with:

@@ -44,13 +44,13 @@ export const register = async (req: Request, res: Response) => {
     return sendResponse(res, 409, "Email already exists", null);
   }
 
-  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   const createdUser = await User.create({
     name,
     email,
     age,
-    password,
+    password: hashedPassword,
     role: role || "user",
   });
 

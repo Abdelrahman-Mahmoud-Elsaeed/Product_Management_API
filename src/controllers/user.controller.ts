@@ -18,7 +18,7 @@ export const createUser = async (req: Request, res: Response) => {
     name,
     email,
     age,
-    password,
+    password: hashedPassword,
     role,
   });
 
@@ -38,16 +38,16 @@ export const getUsers = async (req: Request, res: Response) => {
     limit = "10",
   } = req.query;
 
-  const filter: any = {};
+  const filter: Record<string, unknown> = {};
 
   if (name) filter.name = { $regex: name as string, $options: "i" };
   if (email) filter.email = { $regex: email as string, $options: "i" };
   if (role) filter.role = role;
 
   if (minAge || maxAge) {
-    filter.age = {};
-    if (minAge) filter.age.$gte = parseInt(minAge as string);
-    if (maxAge) filter.age.$lte = parseInt(maxAge as string);
+    (filter.age as Record<string, number>) = {};
+    if (minAge) (filter.age as Record<string, number>).$gte = parseInt(minAge as string);
+    if (maxAge) (filter.age as Record<string, number>).$lte = parseInt(maxAge as string);
   }
 
   const pageNum = parseInt(page as string);

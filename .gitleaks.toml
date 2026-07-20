@@ -1,0 +1,13 @@
+title = "gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+    '''node_modules''',
+    '''dist''',
+    '''coverage''',
+    '''\.git''',
+]

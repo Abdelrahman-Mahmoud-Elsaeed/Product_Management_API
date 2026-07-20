@@ -40,14 +40,14 @@ export const getProducts = async (req: Request, res: Response) => {
     order = "desc",
   } = req.query;
 
-  const filter: any = {};
+  const filter: Record<string, unknown> = {};
 
   if (categoryId) filter.categoryId = categoryId;
 
   if (minPrice || maxPrice) {
-    filter.price = {};
-    if (minPrice) filter.price.$gte = Number(minPrice);
-    if (maxPrice) filter.price.$lte = Number(maxPrice);
+    (filter.price as Record<string, number>) = {};
+    if (minPrice) (filter.price as Record<string, number>).$gte = Number(minPrice);
+    if (maxPrice) (filter.price as Record<string, number>).$lte = Number(maxPrice);
   }
 
   const pageNum = Math.max(Number(page), 1);

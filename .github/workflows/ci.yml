@@ -1,0 +1,109 @@
+name: Continuous Integration (CI)
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for running manual deployment'
+        required: false
+        default: 'Manual deployment'
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  ci-pipeline:
+    name: CI Build, Security & Test Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Lint
+      - name: Run Linter
+        run: npm run lint --if-present
+
+      # 5. Unit Tests
+      - name: Run Unit Tests
+        run: npm test --if-present
+
+      # 6. Build Application
+      - name: Build Application
+        run: npm run build --if-present
+
+      # 7. Secret Scanning (Gitleaks)
+      - name: Secret Scanning (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 8. Dependency Scanning (SCA - npm audit)
+      - name: Dependency Scanning (SCA)
+        run: npm audit --audit-level=high
+
+      # 9. SAST (Semgrep)
+      - name: SAST Scanning (Semgrep)
+        uses: semgrep/actions@v1
+        with:
+          config: .semgrep.yml
+
+      # 10. Terraform Setup
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.0"
+
+      # 11. Terraform Formatting & Validation
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive terraform/
+
+      - name: Terraform Init & Validate
+        run: |
+          cd terraform/env/dev
+          terraform init -backend=false
+          terraform validate
+
+      # 12. Terraform Security (Checkov)
+      - name: Terraform Security Scan (Checkov)
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: terraform/env/dev
+          framework: terraform
+          output_format: cli
+          soft_fail: false
+
+      # 13. Terraform Plan
+      - name: Terraform Plan Check
+        run: |
+          cd terraform/env/dev
+          terraform plan
+      
+      # 13. Build Docker Image
+      - name: Build Docker Image
+        run: |
+          docker build -t test-app:local .
+
+      # 14. Container Image Scan (Trivy)
+      - name: Container Image Scan (Trivy)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'test-app:local'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'

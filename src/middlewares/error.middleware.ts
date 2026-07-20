@@ -1,4 +1,4 @@
-import type { Request, Response, NextFunction } from "express";
+import type { Request, Response } from "express";
 
 interface CustomError extends Error {
   statusCode?: number;
@@ -8,7 +8,6 @@ const errorMiddleware = (
   err: CustomError,
   req: Request,
   res: Response,
-  next: NextFunction
 ) => {
   const statusCode = err.statusCode || 500;
 

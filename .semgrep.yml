@@ -1,0 +1,20 @@
+extends:
+  - config:recommended
+
+rules:
+  - id: typescript.best-practices
+    patterns:
+      - pattern-either:
+          - pattern: console.log(...)
+          - pattern: console.error(...)
+          - pattern: console.warn(...)
+    message: Avoid console logging in production code
+    severity: WARNING
+    languages:
+      - typescript
+      - javascript
+
+ignore:
+  - node_modules
+  - dist
+  - coverage

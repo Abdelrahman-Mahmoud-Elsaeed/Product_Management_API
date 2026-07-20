@@ -16,6 +16,15 @@ app.use("/uploads", express.static("uploads"));
 
 con();
 
+
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.use("/api/v1", router);
 
 

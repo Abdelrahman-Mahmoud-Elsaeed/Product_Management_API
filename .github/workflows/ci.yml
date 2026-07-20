@@ -57,7 +57,7 @@ jobs:
 
       # 9. SAST (Semgrep)
       - name: SAST Scanning (Semgrep)
-        uses: semgrep/actions@v1
+        uses: semgrep/semgrep-actions@v1
         with:
           config: .semgrep.yml
 

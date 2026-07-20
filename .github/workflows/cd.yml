@@ -91,12 +91,17 @@ jobs:
           
           # Retry loop for target group stabilization
           for i in {1..10}; do
-            HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}" "http://${ALB_DNS}/" || true)
-            if [ "$HTTP_STATUS" -eq 200 ]; then
+            # Fallback to "000" if curl fails so HTTP_STATUS is never empty
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://${ALB_DNS}/" || echo "000")
+            
+            echo "Waiting for ALB health check... status code: '$HTTP_STATUS'"
+
+            # [[ ]] safely handles empty or non-numeric values without crashing
+            if [[ "$HTTP_STATUS" == "200" ]]; then
               echo "Health check passed with HTTP 200!"
               exit 0
             fi
-            echo "Waiting for ALB health check... status code: $HTTP_STATUS"
+
             sleep 15
           done
 

@@ -1,16 +1,19 @@
 variable "aws_region" {
   type        = string
   description = "AWS region"
+  default     = "us-east-1"
 }
 
 variable "environment" {
   type        = string
   description = "Environment name (dev, prod, etc.)"
+  default     = "dev"
 }
 
 variable "app_port" {
   type        = number
   description = "Application port"
+  default     = 3000
 }
 
 variable "vpc_cidr" {

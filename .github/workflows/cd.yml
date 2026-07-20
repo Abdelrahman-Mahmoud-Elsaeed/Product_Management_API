@@ -86,7 +86,7 @@ jobs:
       - name: ALB Health Check
         run: |
           cd terraform/env/dev
-          ALB_DNS=$(terraform output -raw alb_dns_endpoint)
+          ALB_DNS=$(terraform output -raw alb_dns_name)
           echo "Testing health endpoint at http://${ALB_DNS}/"
           
           # Retry loop for target group stabilization

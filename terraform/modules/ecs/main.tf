@@ -23,7 +23,7 @@ resource "aws_ecs_task_definition" "main" {
           hostPort      = var.container_port
         }
       ]
-      
+
       secrets = [
         {
           name      = "SECRET_KEY"

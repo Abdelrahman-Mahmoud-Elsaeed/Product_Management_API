@@ -76,6 +76,7 @@ jobs:
             --force-new-deployment
 
       - name: Wait for ECS Service Stability
+        timeout-minutes: 5
         run: |
           aws ecs wait services-stable \
             --cluster dev-ecs-cluster \

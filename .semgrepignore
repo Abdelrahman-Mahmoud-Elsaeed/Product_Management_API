@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+coverage/
+data/
+logs/
+tmp/
+.git/
+.vscode/
+.idea/
+server.ts

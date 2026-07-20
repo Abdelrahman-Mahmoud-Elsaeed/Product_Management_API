@@ -20,6 +20,6 @@ variable "security_group_id" {
 
 variable "app_port" {
   type        = number
-  default     = 8080
+  default     = 3000
   description = "Target port for container traffic"
 }

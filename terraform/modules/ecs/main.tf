@@ -24,6 +24,13 @@ resource "aws_ecs_task_definition" "main" {
         }
       ]
 
+      environment = [
+        {
+          name  = "PORT"
+          value = tostring(var.container_port)
+        }
+      ]
+
       secrets = [
         {
           name      = "SECRET_KEY"

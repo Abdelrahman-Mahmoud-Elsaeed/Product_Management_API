@@ -92,19 +92,13 @@ resource "aws_iam_openid_connect_provider" "eks" {
   }
 }
 
-# ─── Cluster Access Entries ───────────────────────────────────────────────────
-
-data "aws_caller_identity" "current" {}
-
-locals {
-  cluster_access_principals = toset(concat(
-    [data.aws_caller_identity.current.arn],
-    var.cluster_access_principal_arns
-  ))
-}
+# ─── Cluster Access Entries (additional principals only) ──────────────────────
+# The cluster creator already gets admin access via bootstrap_cluster_creator_admin_permissions = true
+# in the access_config block above. These entries grant access to ADDITIONAL principals
+# (e.g. CI/CD IAM users, other team members).
 
 resource "aws_eks_access_entry" "admin" {
-  for_each = local.cluster_access_principals
+  for_each = toset(var.cluster_access_principal_arns)
 
   cluster_name  = aws_eks_cluster.main.name
   principal_arn = each.value
@@ -112,7 +106,7 @@ resource "aws_eks_access_entry" "admin" {
 }
 
 resource "aws_eks_access_policy_association" "admin" {
-  for_each = local.cluster_access_principals
+  for_each = toset(var.cluster_access_principal_arns)
 
   cluster_name  = aws_eks_cluster.main.name
   principal_arn = each.value

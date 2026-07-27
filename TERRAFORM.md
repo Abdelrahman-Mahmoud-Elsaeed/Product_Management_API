@@ -731,9 +731,7 @@ default_tags {
 }
 ```
 
-### Provider Aliases
-
-The `kubernetes.eks` and `helm.eks` aliased providers are configured in `env/<env>/providers.tf` using the EKS cluster outputs and passed into the `alb_controller` and `k8s_app` modules via `providers` blocks in `main.tf`:
+The `kubernetes.eks`, `helm.eks`, and `kubectl.eks` aliased providers are configured in `env/<env>/providers.tf` using the EKS cluster outputs and passed into the `alb_controller` and `k8s_app` modules via `providers` blocks in `main.tf`:
 
 ```hcl
 module "alb_controller" {
@@ -744,7 +742,10 @@ module "alb_controller" {
 
 module "k8s_app" {
   source    = "../../modules/k8s_app"
-  providers = { kubernetes.eks = kubernetes.eks }
+  providers = {
+    kubernetes.eks = kubernetes.eks
+    kubectl.eks    = kubectl.eks
+  }
   ...
 }
 ```

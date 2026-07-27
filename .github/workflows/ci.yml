@@ -52,8 +52,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # ── 8. Dependency Scanning (npm audit) ────────────────────────────────
+      # Only audit production dependencies to avoid blocking on local dev tool
+      # vulnerabilities (like Jest or ESLint) which do not run in production.
       - name: Dependency Scanning (SCA)
-        run: npm audit --audit-level=high
+        run: npm audit --audit-level=high --omit=dev
 
       # ── 9. SAST Scanning (Semgrep) ────────────────────────────────────────
       # semgrep/semgrep-action was archived in April 2024.

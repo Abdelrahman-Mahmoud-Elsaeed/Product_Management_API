@@ -104,14 +104,14 @@ Once configured, any `destroy.yml` run will pause and wait for a reviewer to app
 5.  Unit Tests                  npm test
 6.  Build Application           npm run build
 7.  Secret Scanning             Gitleaks
-8.  Dependency Scanning         npm audit --audit-level=high
-9.  SAST Scanning               Semgrep (semgrep/semgrep-action@v1)
+8.  Dependency Scanning         npm audit --audit-level=high --omit=dev
+9.  SAST Scanning               Semgrep (CLI via pip install)
 10. Terraform Setup             hashicorp/setup-terraform@v3 (v1.7.0)
 11. Terraform Format Check      terraform fmt -check -recursive terraform/
 12. Terraform Init & Validate   terraform init -backend=false && terraform validate
 13. Terraform Security Scan     Checkov (bridgecrewio/checkov-action@v12)
 14. Build Docker Image          docker build -t test-app:local .
-15. Container Image Scan        Trivy (aquasecurity/trivy-action@0.28.0)
+15. Container Image Scan        Trivy (aquasecurity/trivy-action@v0.36.0)
 16. Upload SARIF Results        github/codeql-action/upload-sarif@v3
 ```
 
@@ -121,10 +121,10 @@ Once configured, any `destroy.yml` run will pause and wait for a reviewer to app
 Scans the entire git history and all files for accidentally committed secrets (API keys, passwords, tokens). Fails the pipeline if any secrets are detected.
 
 #### Step 8 — Dependency Scanning (npm audit)
-Checks all npm dependencies for known vulnerabilities. Fails on `HIGH` or `CRITICAL` severity findings.
+Checks all production npm dependencies for known vulnerabilities (omitting `devDependencies` via `--omit=dev` to avoid blocking on build/test tool vulnerabilities that do not deploy to production). Fails on `HIGH` or `CRITICAL` severity findings.
 
 #### Step 9 — SAST Scanning (Semgrep)
-Static Application Security Testing — analyzes source code for security vulnerabilities, bad patterns, and bugs. Uses the `auto` ruleset which selects rules appropriate for the detected language (TypeScript/Node.js).
+Static Application Security Testing — analyzes source code for security vulnerabilities, bad patterns, and bugs. Installed directly via pip and executed locally in the workspace.
 
 #### Step 12 — Terraform Validate
 Runs with `-backend=false` so no AWS credentials or S3 state bucket are required. Validates HCL syntax and module references only.
@@ -311,7 +311,7 @@ The job runs in the `production` GitHub Environment. If you have configured requ
 | Tool | Type | Target | Blocks Pipeline? |
 |------|------|--------|-----------------|
 | **Gitleaks** | Secret detection | Git history + all files | ✅ Yes |
-| **npm audit** | SCA (dependency CVEs) | `node_modules` | ✅ Yes (`HIGH`+) |
+| **npm audit** | SCA (dependency CVEs) | `node_modules` (prod only) | ✅ Yes (`HIGH`+) |
 | **Semgrep** | SAST (code patterns) | Source code (TypeScript) | ✅ Yes |
 | **Checkov** | IaC security | `terraform/` (all modules) | ⚠️ No (soft fail) |
 | **Trivy** | Container CVEs | Built Docker image | ✅ Yes (`HIGH`+) |

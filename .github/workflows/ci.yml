@@ -56,12 +56,12 @@ jobs:
         run: npm audit --audit-level=high
 
       # ── 9. SAST Scanning (Semgrep) ────────────────────────────────────────
-      # Uses the official Semgrep GitHub Action (no Docker-in-Docker required).
-      # Runs in standalone mode — no SEMGREP_APP_TOKEN needed.
+      # semgrep/semgrep-action was archived in April 2024.
+      # Using the official recommended approach: pip install + semgrep scan.
       - name: SAST Scanning (Semgrep)
-        uses: semgrep/semgrep-action@v1
-        with:
-          config: auto
+        run: |
+          pip install semgrep --quiet
+          semgrep scan --config auto --error .
 
       # ── 10. Terraform Setup ────────────────────────────────────────────────
       - name: Setup Terraform
@@ -99,8 +99,9 @@ jobs:
       # ── 14. Container Image Scan (Trivy) ──────────────────────────────────
       # Exits with code 1 on CRITICAL or HIGH unfixed vulnerabilities.
       # Results are also uploaded to GitHub Security → Code scanning alerts.
+      # Note: trivy-action requires the "v" prefix (e.g. v0.36.0, not 0.28.0).
       - name: Container Image Scan (Trivy)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: 'test-app:local'
           format: 'sarif'

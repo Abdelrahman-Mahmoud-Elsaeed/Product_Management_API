@@ -83,7 +83,7 @@ jobs:
 
       # ── 9. Install kubectl ─────────────────────────────────────────────────
       - name: Install kubectl
-        uses: azure/setup-kubectl@v4
+        uses: azure/setup-kubectl@v5.1.0
 
       # ── 10. Deploy New Image to EKS ────────────────────────────────────────
       - name: Deploy to Amazon EKS

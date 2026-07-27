@@ -49,7 +49,8 @@ resource "kubernetes_secret" "app" {
 # ─── Kubernetes Deployment ────────────────────────────────────────────────────
 
 resource "kubernetes_deployment" "app" {
-  provider = kubernetes.eks
+  provider         = kubernetes.eks
+  wait_for_rollout = false
 
   metadata {
     name      = "${var.environment}-app"

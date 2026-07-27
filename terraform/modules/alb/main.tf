@@ -1,7 +1,6 @@
-# nosemgrep: terraform.aws.security.aws-elb-access-logs-not-enabled.aws-elb-access-logs-not-enabled
 # checkov:skip=CKV_AWS_91:Access logging requires a dedicated S3 bucket — acceptable trade-off for dev; enable for production
 # checkov:skip=CKV_AWS_92:Deletion protection disabled intentionally for dev so terraform destroy works cleanly
-resource "aws_lb" "main" {
+resource "aws_lb" "main" { # nosemgrep: terraform.aws.security.aws-elb-access-logs-not-enabled.aws-elb-access-logs-not-enabled
   name               = "${var.environment}-alb"
   internal           = false
   load_balancer_type = "application"
@@ -34,13 +33,12 @@ resource "aws_lb_target_group" "main" {
   }
 }
 
-# nosemgrep: terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version
 # checkov:skip=CKV_AWS_2:HTTPS listener requires ACM certificate — HTTP only for dev; add HTTPS for production
 # checkov:skip=CKV_AWS_103:TLS policy not applicable on an HTTP listener
-resource "aws_lb_listener" "http" {
+resource "aws_lb_listener" "http" { # nosemgrep: terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version
   load_balancer_arn = aws_lb.main.arn
   port              = 80
-  protocol          = "HTTP"
+  protocol          = "HTTP" # nosemgrep: terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-balancer-tls-version
 
   default_action {
     type             = "forward"

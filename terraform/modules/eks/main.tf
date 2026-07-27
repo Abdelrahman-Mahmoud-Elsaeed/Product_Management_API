@@ -5,7 +5,7 @@
 # checkov:skip=CKV_AWS_38:Public endpoint access is required for kubectl from GitHub Actions and local machines in this dev setup
 # checkov:skip=CKV_AWS_39:Public access CIDR restriction disabled for dev; restrict to known CIDRs for production
 # checkov:skip=CKV_EKS_1:Cluster logging disabled intentionally for dev cost savings; enable for production
-resource "aws_eks_cluster" "main" { # nosemgrep: terraform.lang.security.eks-public-endpoint-enabled.eks-public-endpoint-enabled
+resource "aws_eks_cluster" "main" {           # nosemgrep: terraform.lang.security.eks-public-endpoint-enabled.eks-public-endpoint-enabled
   name     = "${var.environment}-eks-cluster" # nosemgrep: terraform.lang.security.eks-insufficient-control-plane-logging.eks-insufficient-control-plane-logging
   role_arn = var.cluster_role_arn
   version  = var.cluster_version

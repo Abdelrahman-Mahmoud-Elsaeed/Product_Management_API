@@ -199,10 +199,10 @@ resource "kubernetes_service" "app" {
 
 # ─── TargetGroupBinding (registers pods with the ALB target group) ────────────
 
-resource "kubernetes_manifest" "target_group_binding" {
-  provider = kubernetes.eks
+resource "kubectl_manifest" "target_group_binding" {
+  provider = kubectl.eks
 
-  manifest = {
+  yaml_body = jsonencode({
     apiVersion = "elbv2.k8s.aws/v1beta1"
     kind       = "TargetGroupBinding"
     metadata = {
@@ -217,7 +217,7 @@ resource "kubernetes_manifest" "target_group_binding" {
       targetGroupARN = var.target_group_arn
       targetType     = "ip"
     }
-  }
+  })
 
   depends_on = [kubernetes_service.app]
 }

@@ -99,6 +99,7 @@ module "k8s_app" {
 
   providers = {
     kubernetes.eks = kubernetes.eks
+    kubectl.eks    = kubectl.eks
   }
 
   environment             = var.environment

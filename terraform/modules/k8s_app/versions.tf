@@ -7,5 +7,9 @@ terraform {
       source                = "hashicorp/kubernetes"
       configuration_aliases = [kubernetes.eks]
     }
+    kubectl = {
+      source                = "gavinbunney/kubectl"
+      configuration_aliases = [kubectl.eks]
+    }
   }
 }

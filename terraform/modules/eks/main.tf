@@ -1,5 +1,7 @@
 # ─── EKS Cluster ──────────────────────────────────────────────────────────────
 
+# nosemgrep: terraform.lang.security.eks-public-endpoint-enabled.eks-public-endpoint-enabled
+# nosemgrep: terraform.lang.security.eks-insufficient-control-plane-logging.eks-insufficient-control-plane-logging
 # checkov:skip=CKV_AWS_58:EKS secrets envelope encryption requires a KMS key — cost trade-off for dev; enable for production
 # checkov:skip=CKV_AWS_37:Control plane logging (audit, api, authenticator) adds CloudWatch cost — acceptable for dev
 # checkov:skip=CKV_AWS_38:Public endpoint access is required for kubectl from GitHub Actions and local machines in this dev setup
@@ -29,6 +31,12 @@ resource "aws_launch_template" "nodes" {
   name_prefix = "${var.environment}-eks-nodes-"
 
   vpc_security_group_ids = [var.node_security_group_id]
+
+  metadata_options {
+    http_endpoint               = "enabled"
+    http_tokens                 = "required"
+    http_put_response_hop_limit = 2
+  }
 
   tag_specifications {
     resource_type = "instance"

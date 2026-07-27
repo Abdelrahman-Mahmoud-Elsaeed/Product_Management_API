@@ -28,11 +28,11 @@ jobs:
     steps:
       # ── 1. Checkout ────────────────────────────────────────────────────────
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       # ── 2. Configure AWS Credentials ───────────────────────────────────────
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@ff717079ee2060e4bcee96c4779b553acc87447c # v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -41,7 +41,7 @@ jobs:
       # ── 3. Login to Amazon ECR ─────────────────────────────────────────────
       - name: Login to Amazon ECR
         id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@d539f0932e70871a027e9d5a9d8fc38589180a64 # v2
 
       # ── 4. Build & Push Docker Image ───────────────────────────────────────
       # Image is built and pushed BEFORE terraform apply so that the k8s_app
@@ -59,7 +59,7 @@ jobs:
 
       # ── 5. Terraform Setup ─────────────────────────────────────────────────
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
         with:
           terraform_version: "1.7.0"
 
@@ -83,7 +83,7 @@ jobs:
 
       # ── 9. Install kubectl ─────────────────────────────────────────────────
       - name: Install kubectl
-        uses: azure/setup-kubectl@v5.1.0
+        uses: azure/setup-kubectl@829323503d1be3d00ca8346e5391ca0b07a9ab0d # v5.1.0
 
       # ── 10. Deploy New Image to EKS ────────────────────────────────────────
       - name: Deploy to Amazon EKS

@@ -20,6 +20,7 @@ resource "aws_internet_gateway" "main" {
 }
 
 # Public Subnets (used for ALB, EKS nodes, and pods to avoid NAT costs)
+# nosemgrep: terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-public-ip-address
 # checkov:skip=CKV_AWS_130:auto-assign public IP is required — EKS nodes run in public subnets intentionally to avoid NAT Gateway cost (documented trade-off)
 resource "aws_subnet" "public" {
   count                   = length(var.public_subnet_cidrs)

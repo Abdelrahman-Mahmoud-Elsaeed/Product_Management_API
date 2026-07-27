@@ -26,10 +26,12 @@ jobs:
       # ── 1. Confirm Intent ──────────────────────────────────────────────────
       # Abort immediately if the user did not type "destroy" exactly.
       - name: Validate Confirmation
+        env:
+          CONFIRMATION_INPUT: ${{ github.event.inputs.confirmation }}
         run: |
-          if [[ "${{ github.event.inputs.confirmation }}" != "destroy" ]]; then
+          if [[ "$CONFIRMATION_INPUT" != "destroy" ]]; then
             echo "❌ Confirmation text did not match. Expected: destroy"
-            echo "   Got: ${{ github.event.inputs.confirmation }}"
+            echo "   Got: $CONFIRMATION_INPUT"
             echo "Aborting to protect infrastructure."
             exit 1
           fi
@@ -37,11 +39,11 @@ jobs:
 
       # ── 2. Checkout ────────────────────────────────────────────────────────
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       # ── 3. Configure AWS Credentials ───────────────────────────────────────
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@ff717079ee2060e4bcee96c4779b553acc87447c # v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -49,7 +51,7 @@ jobs:
 
       # ── 4. Terraform Setup ─────────────────────────────────────────────────
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
         with:
           terraform_version: "1.7.0"
 

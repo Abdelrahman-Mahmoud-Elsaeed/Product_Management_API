@@ -20,11 +20,11 @@ jobs:
     steps:
       # ── 1. Checkout ────────────────────────────────────────────────────────
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       # ── 2. Node.js Setup ───────────────────────────────────────────────────
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '20'
           cache: 'npm'
@@ -47,7 +47,7 @@ jobs:
 
       # ── 7. Secret Scanning (Gitleaks) ──────────────────────────────────────
       - name: Secret Scanning (Gitleaks)
-        uses: gitleaks/gitleaks-action@v2
+        uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -67,7 +67,7 @@ jobs:
 
       # ── 10. Terraform Setup ────────────────────────────────────────────────
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
         with:
           terraform_version: "1.7.0"
 
@@ -75,18 +75,19 @@ jobs:
       - name: Terraform Format Check
         run: terraform fmt -check -recursive terraform/
 
+      # ── 12. Terraform Init & Validate ─────────────────────────────────────
       - name: Terraform Init & Validate
         run: |
           cd terraform/env/dev
           terraform init -backend=false
           terraform validate
 
-      # ── 12. Terraform Security Scan (Checkov) ─────────────────────────────
+      # ── 13. Terraform Security Scan (Checkov) ─────────────────────────────
       # Scans the full terraform/ directory including all modules.
       # continue-on-error: true so security findings are reported without
       # blocking the pipeline — review findings in the Actions summary.
       - name: Terraform Security Scan (Checkov)
-        uses: bridgecrewio/checkov-action@v12
+        uses: bridgecrewio/checkov-action@7b972723c44fb3d256283fac96fae5d7c1894bb7 # v12
         with:
           directory: terraform/
           framework: terraform
@@ -94,17 +95,17 @@ jobs:
           soft_fail: true
         continue-on-error: true
 
-      # ── 13. Build Docker Image ─────────────────────────────────────────────
+      # ── 14. Build Docker Image ─────────────────────────────────────────────
       - name: Build Docker Image
         run: docker build -t test-app:local .
 
-      # ── 14. Container Image Scan (Trivy) ──────────────────────────────────
+      # ── 15. Container Image Scan (Trivy) ──────────────────────────────────
       # Exits with code 1 on CRITICAL or HIGH unfixed vulnerabilities.
       # Results are also uploaded to GitHub Security → Code scanning alerts.
-      # Note: trivy-action requires the "v" prefix (e.g. v0.36.0, not 0.28.0).
       - name: Container Image Scan (Trivy)
-        uses: aquasecurity/trivy-action@v0.36.0
+        uses: aquasecurity/trivy-action@a9c7b0f06e461e9d4b4d1711f154ee024b8d7ab8 # v0.36.0
         with:
+          scan-type: 'image'
           image-ref: 'test-app:local'
           format: 'sarif'
           output: 'trivy-results.sarif'
@@ -112,8 +113,9 @@ jobs:
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
 
+      # ── 16. Upload Trivy SARIF to GitHub Security ──────────────────────────
       - name: Upload Trivy SARIF to GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@adfda868f108ac4222129de456ea554034a27db7 # v4
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'

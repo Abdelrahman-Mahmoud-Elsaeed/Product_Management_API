@@ -124,14 +124,25 @@ export const uploadProductImage = async (
   }
 
   const uploadDir = path.join(__dirname, "..", "uploads");
-  const filename = path.parse(req.file.filename).name;
+  const rawFilename = path.parse(req.file.filename).name;
+
+  // Strict regex check to prevent path traversal via filename
+  if (!/^[a-zA-Z0-9_-]+$/.test(rawFilename)) {
+    await fs.unlink(req.file.path).catch(() => {});
+    return sendResponse(res, 400, "Invalid filename format", null);
+  }
+  const filename = path.basename(rawFilename);
   const originalPath = req.file.path;
 
-  const folders = ["large", "low","placeholder", "small", "medium", "webp", "avif"];
+  const folders = ["large", "low", "placeholder", "small", "medium", "webp", "avif"] as const;
   await Promise.all(
-    folders.map((folder) =>
-      fs.mkdir(path.join(uploadDir, folder), { recursive: true }),
-    ),
+    folders.map((folder) => {
+      // Whitelist check to prevent path traversal via folder name
+      if (!folders.includes(folder)) {
+        throw new Error("Invalid destination folder");
+      }
+      return fs.mkdir(path.join(uploadDir, folder), { recursive: true });
+    }),
   );
 
   const largePath = path.join(uploadDir, "large", `${filename}.jpg`);

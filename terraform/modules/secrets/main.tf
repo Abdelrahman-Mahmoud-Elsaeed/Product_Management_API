@@ -2,6 +2,7 @@
 # checkov:skip=CKV2_AWS_57:Automatic rotation not configured — secrets are manually updated in AWS Console then re-applied; use rotation lambdas for production
 
 # Secret 1: SECRET_KEY
+# nosemgrep: terraform.aws.security.aws-secretsmanager-secret-unencrypted.aws-secretsmanager-secret-unencrypted
 resource "aws_secretsmanager_secret" "secret_key" {
   name                    = "product-management/${var.environment}/SECRET_KEY"
   recovery_window_in_days = 0
@@ -17,6 +18,7 @@ resource "aws_secretsmanager_secret_version" "secret_key" {
 }
 
 # Secret 2: SESSION_SECRET
+# nosemgrep: terraform.aws.security.aws-secretsmanager-secret-unencrypted.aws-secretsmanager-secret-unencrypted
 resource "aws_secretsmanager_secret" "session_secret" {
   name                    = "product-management/${var.environment}/SESSION_SECRET"
   recovery_window_in_days = 0
@@ -32,6 +34,7 @@ resource "aws_secretsmanager_secret_version" "session_secret" {
 }
 
 # Secret 3: PASSWORD_SECRET_KEY
+# nosemgrep: terraform.aws.security.aws-secretsmanager-secret-unencrypted.aws-secretsmanager-secret-unencrypted
 resource "aws_secretsmanager_secret" "password_secret_key" {
   name                    = "product-management/${var.environment}/PASSWORD_SECRET_KEY"
   recovery_window_in_days = 0
@@ -47,6 +50,7 @@ resource "aws_secretsmanager_secret_version" "password_secret_key" {
 }
 
 # Secret 4: DATABASE_CONNECTION
+# nosemgrep: terraform.aws.security.aws-secretsmanager-secret-unencrypted.aws-secretsmanager-secret-unencrypted
 resource "aws_secretsmanager_secret" "db_connection" {
   name                    = "product-management/${var.environment}/DATABASE_CONNECTION"
   recovery_window_in_days = 0

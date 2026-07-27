@@ -33,3 +33,15 @@ variable "availability_zones" {
   description = "Availability zones for subnets"
   default     = ["us-east-1a", "us-east-1b"]
 }
+
+variable "replicas" {
+  type        = number
+  description = "Number of application pod replicas"
+  default     = 1
+}
+
+variable "cluster_access_principal_arns" {
+  type        = list(string)
+  description = "IAM principal ARNs granted EKS cluster admin access (e.g. CI/CD user)"
+  default     = []
+}

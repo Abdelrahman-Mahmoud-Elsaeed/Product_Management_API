@@ -8,102 +8,159 @@ on:
         required: false
         default: 'Manual deployment'
 
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: dev-app-repo
+  EKS_CLUSTER: dev-eks-cluster
+  K8S_NAMESPACE: dev
+  K8S_DEPLOYMENT: dev-app
+  K8S_CONTAINER: dev-app
+  TF_WORKING_DIR: terraform/env/dev
+
 jobs:
   cd-pipeline:
     name: CD Infrastructure & Application Deployment
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout Code
+      # ── 1. Checkout ────────────────────────────────────────────────────────
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 2. Configure AWS Credentials
+      # ── 2. Configure AWS Credentials ───────────────────────────────────────
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
 
-      # 3. Login to Amazon ECR
+      # ── 3. Login to Amazon ECR ─────────────────────────────────────────────
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
-      # 4. Terraform Setup
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.7.0"
-
-      # 5. Terraform Init
-      - name: Terraform Init
-        run: |
-          cd terraform/env/dev
-          terraform init
-
-      # 6. Terraform Plan
-      - name: Terraform Plan
-        run: |
-          cd terraform/env/dev
-          terraform plan -out=tfplan
-
-      # 7. Terraform Apply (Infrastructure Provisioning)
-      - name: Terraform Apply
-        run: |
-          cd terraform/env/dev
-          terraform apply -auto-approve tfplan
-
-      # 8. Build, Tag, and Push Image to Amazon ECR
+      # ── 4. Build & Push Docker Image ───────────────────────────────────────
+      # Image is built and pushed BEFORE terraform apply so that the k8s_app
+      # module always references the freshly-pushed :latest image.
       - name: Build and Push Docker Image to ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: dev-app-repo
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          echo "IMAGE=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
 
-      # 9. Deploy New Image to ECS & Wait for Service Stability
-      - name: Deploy to Amazon ECS
+      # ── 5. Terraform Setup ─────────────────────────────────────────────────
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.0"
+
+      # ── 6. Terraform Init ──────────────────────────────────────────────────
+      - name: Terraform Init
         run: |
-          aws ecs update-service \
-            --cluster dev-ecs-cluster \
-            --service dev-service \
-            --force-new-deployment
+          cd ${{ env.TF_WORKING_DIR }}
+          terraform init
 
-      - name: Wait for ECS Service Stability
-        timeout-minutes: 5
+      # ── 7. Terraform Plan ──────────────────────────────────────────────────
+      - name: Terraform Plan
         run: |
-          aws ecs wait services-stable \
-            --cluster dev-ecs-cluster \
-            --services dev-service
+          cd ${{ env.TF_WORKING_DIR }}
+          terraform plan -out=tfplan
 
-      # 10. Health Check
+      # ── 8. Terraform Apply (Infrastructure Provisioning) ───────────────────
+      - name: Terraform Apply
+        run: |
+          cd ${{ env.TF_WORKING_DIR }}
+          terraform apply -auto-approve tfplan
+
+      # ── 9. Install kubectl ─────────────────────────────────────────────────
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v4
+
+      # ── 10. Deploy New Image to EKS ────────────────────────────────────────
+      - name: Deploy to Amazon EKS
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        run: |
+          aws eks update-kubeconfig \
+            --name ${{ env.EKS_CLUSTER }} \
+            --region ${{ env.AWS_REGION }}
+
+          kubectl set image deployment/${{ env.K8S_DEPLOYMENT }} \
+            ${{ env.K8S_CONTAINER }}=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            -n ${{ env.K8S_NAMESPACE }}
+
+          kubectl rollout status deployment/${{ env.K8S_DEPLOYMENT }} \
+            -n ${{ env.K8S_NAMESPACE }} \
+            --timeout=5m
+
+      # ── 11. Debug on Rollout Failure ───────────────────────────────────────
+      # Prints pod events and logs to help diagnose deployment failures.
+      - name: Debug — Pod Events & Logs on Failure
+        if: failure()
+        run: |
+          echo "=== Pod Events ==="
+          kubectl get events \
+            -n ${{ env.K8S_NAMESPACE }} \
+            --sort-by='.lastTimestamp' | tail -30
+
+          echo "=== Pod Status ==="
+          kubectl get pods -n ${{ env.K8S_NAMESPACE }} -o wide
+
+          echo "=== Pod Logs (last 100 lines) ==="
+          kubectl logs \
+            -l app=${{ env.K8S_DEPLOYMENT }} \
+            -n ${{ env.K8S_NAMESPACE }} \
+            --tail=100 \
+            --previous || true
+
+      # ── 12. ALB Health Check ───────────────────────────────────────────────
+      # Retries for up to 5 minutes (20 × 15s). Accepts any 2xx or 3xx
+      # response, matching the ALB health check matcher (200-399) defined
+      # in terraform/modules/alb/main.tf.
       - name: ALB Health Check
         run: |
-          cd terraform/env/dev
+          cd ${{ env.TF_WORKING_DIR }}
           ALB_DNS=$(terraform output -raw alb_dns_name)
           echo "Testing health endpoint at http://${ALB_DNS}/"
-          
-          # Retry loop for target group stabilization
-          for i in {1..10}; do
-            # Fallback to "000" if curl fails so HTTP_STATUS is never empty
-            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://${ALB_DNS}/" || echo "000")
-            
-            echo "Waiting for ALB health check... status code: '$HTTP_STATUS'"
 
-            # [[ ]] safely handles empty or non-numeric values without crashing
-            if [[ "$HTTP_STATUS" == "200" ]]; then
-              echo "Health check passed with HTTP 200!"
+          for i in {1..20}; do
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+              --max-time 10 "http://${ALB_DNS}/" || echo "000")
+
+            echo "Attempt $i/20 — HTTP status: ${HTTP_STATUS}"
+
+            if [[ "$HTTP_STATUS" -ge 200 && "$HTTP_STATUS" -lt 400 ]]; then
+              echo "Health check passed (HTTP ${HTTP_STATUS})"
               exit 0
             fi
 
             sleep 15
           done
 
-          echo "Health check failed!"
+          echo "Health check failed after 20 attempts (5 minutes)"
           exit 1
+
+      # ── 13. Deployment Summary ─────────────────────────────────────────────
+      - name: Deployment Summary
+        if: success()
+        run: |
+          cd ${{ env.TF_WORKING_DIR }}
+          ALB_DNS=$(terraform output -raw alb_dns_name)
+          echo "## Deployment Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Key | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| **Cluster** | ${{ env.EKS_CLUSTER }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Namespace** | ${{ env.K8S_NAMESPACE }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Image Tag** | \`${{ github.sha }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **App URL** | http://${ALB_DNS}/ |" >> $GITHUB_STEP_SUMMARY

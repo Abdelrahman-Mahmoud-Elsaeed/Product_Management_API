@@ -1,5 +1,6 @@
-resource "aws_iam_role" "ecs_execution_role" {
-  name = "${var.environment}-ecs-execution-role"
+# checkov:skip=CKV_AWS_274:AmazonEKSClusterPolicy is an AWS managed policy required by EKS — not an AdministratorAccess policy
+resource "aws_iam_role" "eks_cluster" {
+  name = "${var.environment}-eks-cluster-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -8,7 +9,7 @@ resource "aws_iam_role" "ecs_execution_role" {
         Action = "sts:AssumeRole"
         Effect = "Allow"
         Principal = {
-          Service = "ecs-tasks.amazonaws.com"
+          Service = "eks.amazonaws.com"
         }
       }
     ]
@@ -19,13 +20,14 @@ resource "aws_iam_role" "ecs_execution_role" {
   }
 }
 
-resource "aws_iam_role_policy_attachment" "ecs_execution_policy" {
-  role       = aws_iam_role.ecs_execution_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
+  role       = aws_iam_role.eks_cluster.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
-resource "aws_iam_role" "ecs_task_role" {
-  name = "${var.environment}-ecs-task-role"
+# checkov:skip=CKV_AWS_274:AmazonEKSWorkerNodePolicy, AmazonEKS_CNI_Policy, and AmazonEC2ContainerRegistryReadOnly are AWS managed policies required by EKS nodes
+resource "aws_iam_role" "eks_node" {
+  name = "${var.environment}-eks-node-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -34,7 +36,7 @@ resource "aws_iam_role" "ecs_task_role" {
         Action = "sts:AssumeRole"
         Effect = "Allow"
         Principal = {
-          Service = "ecs-tasks.amazonaws.com"
+          Service = "ec2.amazonaws.com"
         }
       }
     ]
@@ -45,25 +47,17 @@ resource "aws_iam_role" "ecs_task_role" {
   }
 }
 
-resource "aws_iam_policy" "ecs_secrets_policy" {
-  name        = "${var.environment}-ecs-secrets-policy"
-  description = "Allows ECS Task Execution Role to retrieve secrets from Secrets Manager"
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Action = [
-          "secretsmanager:GetSecretValue"
-        ]
-        Resource = var.secret_arns
-      }
-    ]
-  })
+resource "aws_iam_role_policy_attachment" "eks_node_worker_policy" {
+  role       = aws_iam_role.eks_node.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 
-resource "aws_iam_role_policy_attachment" "ecs_secrets_policy_attachment" {
-  role       = aws_iam_role.ecs_execution_role.name
-  policy_arn = aws_iam_policy.ecs_secrets_policy.arn
+resource "aws_iam_role_policy_attachment" "eks_node_cni_policy" {
+  role       = aws_iam_role.eks_node.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+}
+
+resource "aws_iam_role_policy_attachment" "eks_node_ecr_policy" {
+  role       = aws_iam_role.eks_node.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }

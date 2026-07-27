@@ -2,34 +2,82 @@ name: Destroy Infrastructure
 
 on:
   workflow_dispatch:
+    inputs:
+      confirmation:
+        description: 'Type "destroy" to confirm. This will permanently delete ALL infrastructure.'
+        required: true
+
+# Requires a GitHub Environment named "production" with required reviewers
+# configured in Settings → Environments for an additional approval gate.
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: us-east-1
+  TF_WORKING_DIR: terraform/env/dev
 
 jobs:
   destroy:
     name: Terraform Destroy
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
+      # ── 1. Confirm Intent ──────────────────────────────────────────────────
+      # Abort immediately if the user did not type "destroy" exactly.
+      - name: Validate Confirmation
+        run: |
+          if [[ "${{ github.event.inputs.confirmation }}" != "destroy" ]]; then
+            echo "❌ Confirmation text did not match. Expected: destroy"
+            echo "   Got: ${{ github.event.inputs.confirmation }}"
+            echo "Aborting to protect infrastructure."
+            exit 1
+          fi
+          echo "✅ Confirmation accepted. Proceeding with destroy."
+
+      # ── 2. Checkout ────────────────────────────────────────────────────────
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      # ── 3. Configure AWS Credentials ───────────────────────────────────────
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
 
+      # ── 4. Terraform Setup ─────────────────────────────────────────────────
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "1.7.0"
 
+      # ── 5. Terraform Init ──────────────────────────────────────────────────
       - name: Terraform Init
         run: |
-          cd terraform/env/dev
+          cd ${{ env.TF_WORKING_DIR }}
           terraform init
 
+      # ── 6. Terraform Destroy ───────────────────────────────────────────────
       - name: Terraform Destroy
         run: |
-          cd terraform/env/dev
+          cd ${{ env.TF_WORKING_DIR }}
           terraform destroy -auto-approve
+
+      # ── 7. Destroy Summary ─────────────────────────────────────────────────
+      - name: Destroy Summary
+        if: always()
+        run: |
+          if [[ "${{ job.status }}" == "success" ]]; then
+            echo "## 🔥 Infrastructure Destroyed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "All resources in \`${{ env.TF_WORKING_DIR }}\` have been destroyed." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Triggered by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Region:** ${{ env.AWS_REGION }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ⚠️ Destroy Failed or Was Aborted" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Check the logs above. Some resources may still exist in AWS." >> $GITHUB_STEP_SUMMARY
+          fi

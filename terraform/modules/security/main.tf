@@ -1,3 +1,5 @@
+# checkov:skip=CKV_AWS_260:Port 80 open from 0.0.0.0/0 is intentional — ALB must accept public HTTP traffic; HTTPS should be added for production
+# checkov:skip=CKV2_AWS_5:Security group is referenced by the ALB resource managed in the alb module — Checkov cannot resolve cross-module references
 resource "aws_security_group" "alb" {
   name        = "${var.environment}-alb-sg"
   description = "Allow inbound HTTP traffic to ALB"
@@ -22,9 +24,10 @@ resource "aws_security_group" "alb" {
   }
 }
 
-resource "aws_security_group" "ecs_tasks" {
-  name        = "${var.environment}-ecs-tasks-sg"
-  description = "Allow traffic to ECS tasks"
+# checkov:skip=CKV2_AWS_5:Security group is referenced by the EKS launch template in the eks module — Checkov cannot resolve cross-module references
+resource "aws_security_group" "eks_nodes" {
+  name        = "${var.environment}-eks-nodes-sg"
+  description = "Allow traffic to EKS worker nodes and pods"
   vpc_id      = var.vpc_id
 
   ingress {
@@ -32,6 +35,13 @@ resource "aws_security_group" "ecs_tasks" {
     to_port         = var.app_port
     protocol        = "tcp"
     security_groups = [aws_security_group.alb.id]
+  }
+
+  ingress {
+    from_port = 0
+    to_port   = 65535
+    protocol  = "tcp"
+    self      = true
   }
 
   egress {

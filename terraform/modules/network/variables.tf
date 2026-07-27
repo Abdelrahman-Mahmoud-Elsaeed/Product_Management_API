@@ -16,3 +16,9 @@ variable "availability_zones" {
 variable "environment" {
   type = string
 }
+
+variable "cluster_name" {
+  type        = string
+  default     = ""
+  description = "EKS cluster name for subnet tags required by the AWS Load Balancer Controller"
+}

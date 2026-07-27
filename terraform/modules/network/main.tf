@@ -1,3 +1,4 @@
+# checkov:skip=CKV2_AWS_12:VPC flow logs not enabled — adds CloudWatch cost; acceptable for dev, enable for production
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_support   = true
@@ -18,7 +19,8 @@ resource "aws_internet_gateway" "main" {
   }
 }
 
-# Public Subnets (used for both ALB and ECS Tasks to avoid NAT costs)
+# Public Subnets (used for ALB, EKS nodes, and pods to avoid NAT costs)
+# checkov:skip=CKV_AWS_130:auto-assign public IP is required — EKS nodes run in public subnets intentionally to avoid NAT Gateway cost (documented trade-off)
 resource "aws_subnet" "public" {
   count                   = length(var.public_subnet_cidrs)
   vpc_id                  = aws_vpc.main.id
@@ -26,10 +28,16 @@ resource "aws_subnet" "public" {
   availability_zone       = var.availability_zones[count.index]
   map_public_ip_on_launch = true
 
-  tags = {
-    Name        = "${var.environment}-public-subnet-${count.index + 1}"
-    Environment = var.environment
-  }
+  tags = merge(
+    {
+      Name        = "${var.environment}-public-subnet-${count.index + 1}"
+      Environment = var.environment
+    },
+    var.cluster_name != "" ? {
+      "kubernetes.io/role/elb"                    = "1"
+      "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+    } : {}
+  )
 }
 
 resource "aws_route_table" "public" {

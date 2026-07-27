@@ -1,9 +1,9 @@
-output "ecs_execution_role_arn" {
-  value       = aws_iam_role.ecs_execution_role.arn
-  description = "ARN of the ECS Execution Role"
+output "eks_cluster_role_arn" {
+  value       = aws_iam_role.eks_cluster.arn
+  description = "ARN of the EKS cluster IAM role"
 }
 
-output "ecs_task_role_arn" {
-  value       = aws_iam_role.ecs_task_role.arn
-  description = "ARN of the ECS Task Role"
+output "eks_node_role_arn" {
+  value       = aws_iam_role.eks_node.arn
+  description = "ARN of the EKS node group IAM role"
 }

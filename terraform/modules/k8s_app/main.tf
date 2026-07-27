@@ -162,6 +162,12 @@ resource "kubernetes_deployment" "app" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      spec[0].template[0].spec[0].container[0].image,
+    ]
+  }
+
   depends_on = [kubernetes_secret.app]
 }
 

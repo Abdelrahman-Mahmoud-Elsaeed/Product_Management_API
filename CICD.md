@@ -170,11 +170,11 @@ Scans the built Docker image for `CRITICAL` and `HIGH` CVEs in OS packages and a
 1.  Checkout Code
 2.  Configure AWS Credentials
 3.  Login to Amazon ECR
-4.  Build & Push Docker Image to ECR    ← image:sha + image:latest
-5.  Setup Terraform
-6.  Terraform Init
-7.  Terraform Plan                       -out=tfplan
-8.  Terraform Apply                      -auto-approve tfplan
+4.  Setup Terraform
+5.  Terraform Init
+6.  Terraform Plan                       -out=tfplan
+7.  Terraform Apply                      -auto-approve tfplan
+8.  Build & Push Docker Image to ECR    ← image:sha + image:latest
 9.  Install kubectl
 10. Deploy to Amazon EKS                 kubectl set image + rollout status
 11. Debug — Pod Events & Logs            (only runs on failure)
@@ -182,17 +182,17 @@ Scans the built Docker image for `CRITICAL` and `HIGH` CVEs in OS packages and a
 13. Deployment Summary                   Written to GitHub Actions run page
 ```
 
-### Critical Ordering — Image Before Terraform
+### Ordering — Terraform Before Image Build & Push
 
 > [!IMPORTANT]
-> The Docker image is built and pushed to ECR **before** `terraform apply` runs. This ensures the `k8s_app` Terraform module always references a freshly-available `:latest` image. If Terraform ran first, it would apply with the old image still in ECR.
+> The Terraform infrastructure (including the ECR Repository itself) must be provisioned **before** the Docker image is built and pushed. If the image step ran first, pushing to ECR would fail on clean setup because the target repository would not yet exist.
 
 **Correct order:**
 ```
-Build image → Push :sha tag → Push :latest tag → terraform apply → kubectl set image
+terraform apply → Build image → Push :sha + :latest tags → kubectl set image
 ```
 
-### Image Tagging Strategy
+### Image Tagging & Lifecycle Strategy
 
 Each deployment pushes **two tags** to ECR:
 
@@ -201,9 +201,17 @@ Each deployment pushes **two tags** to ECR:
 | Git SHA | `abc1234...` | Unique, immutable reference — used by `kubectl set image` |
 | `latest` | `latest` | Floating tag — used by Terraform as the stable reference |
 
-This means:
-- **Terraform** tracks `:latest` for the Kubernetes Deployment spec
-- **kubectl** updates the running container to the exact SHA for zero-ambiguity rollouts
+To prevent `terraform apply` from resetting the image tag back to `:latest` on subsequent pipeline runs, the Kubernetes Deployment resource is configured with a Terraform `lifecycle` block:
+
+```hcl
+  lifecycle {
+    ignore_changes = [
+      spec[0].template[0].spec[0].container[0].image,
+    ]
+  }
+```
+
+This ensures that Terraform manages the initial container deployment block, while your CD pipeline dynamically manages the active runtime image tags via `kubectl set image` without double rolling the pods.
 
 ### Health Check Logic
 

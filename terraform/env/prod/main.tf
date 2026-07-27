@@ -114,4 +114,6 @@ module "k8s_app" {
 
   # Signal that the ALB controller Helm chart must be installed first
   alb_controller_helm_release_name = module.alb_controller.helm_release_name
+
+  depends_on = [module.alb_controller]
 }

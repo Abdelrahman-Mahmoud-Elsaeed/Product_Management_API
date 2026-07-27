@@ -33,7 +33,10 @@ resource "aws_eks_cluster" "main" {           # nosemgrep: terraform.lang.securi
 resource "aws_launch_template" "nodes" {
   name_prefix = "${var.environment}-eks-nodes-"
 
-  vpc_security_group_ids = [var.node_security_group_id]
+  vpc_security_group_ids = [
+    var.node_security_group_id,
+    aws_eks_cluster.main.vpc_config[0].cluster_security_group_id
+  ]
 
   metadata_options {
     http_endpoint               = "enabled"
